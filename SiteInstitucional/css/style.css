@@ -21,13 +21,17 @@ height: 711px;
     display: flex;
     justify-content: space-around;
     background-color: transparent;
-    padding: 1%;
-    color: aliceblue;
+    padding: 2%;
+    color: rgb(255, 255, 255);
 }
 
 .logoHeader{
     display: flex;
-    color: aliceblue;
+    color: rgb(255, 255, 255);
+}
+
+.logoHeader h1{
+    align-self: center;
 }
 
 #imagemLogo{
@@ -39,6 +43,7 @@ height: 711px;
     gap: 20px;
     list-style: none;
     cursor: pointer;
+    align-items: center;
 }
 /* Fim da estilização da header */
 
@@ -50,6 +55,25 @@ height: 711px;
     align-items: center;
     flex-direction: column;
     height: 90vh;
+    color: rgb(255, 255, 255);
+    font-size: 60px;
+}
+
+.containerHome .subtituloHome{
+    font-size: 20px;
+    font-weight: 10px;
+    padding-top: 20px;
+
+}
+
+.containerHome .botoesHome .botao{
+    height: 40px;
+    width: 220px;
+    background-color: rgb(255, 255, 255);
+    border: 0;
+    border-radius: 20px;
+    cursor: pointer;
+
 }
 
 .blocos{
