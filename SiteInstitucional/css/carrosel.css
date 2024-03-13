@@ -1,0 +1,60 @@
+* {
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+
+.lifeLineTeam {
+    background-color: #6DB5C5;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 60px;
+    padding: 50px 200px;
+}
+
+.headerTeam {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    justify-content: center;
+}
+
+.detalhesTeam {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.escolhaMembroTeam {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.membroTeam {
+    display: flex;
+    gap: 30px;
+}
+
+#fotoMembroTeam {
+    background-color: #D9D9D9;
+    width: 250px;
+    height: 250px;
+    border-radius: 100%;
+}
+
+.arrow {
+    cursor: pointer;
+}
+
+.descricaoAreaTeam {
+    width: 347px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}

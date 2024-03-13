@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/carrosel.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="lifeLineTeam">
+        <div class="headerTeam">
+            <h1 class="tituloTeam">LifeLine Team</h1>
+            <p class="subtituloTeam">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec risus augue.</p>
+        </div>
+        <div class="detalhesTeam">
+            <div class="escolhaMembroTeam">
+                <div class="membroTeam">
+                    <img class="arrow" src="./assets/images/arrowLeft.svg" alt="" onclick="membroAnterior()" >
+                    <div id="fotoMembroTeam"></div>
+                    <img class="arrow" src="./assets/images/arrowRight.svg" alt="" onclick="proximoMembro()">
+
+                </div>
+                <p id="nomeMembro"></p>
+            </div>
+            <div class="descricaoAreaTeam">
+                <h1 id="categoria"></h1>
+                <p id="descricao"></p>
+            </div>
+        </div>
+    </div>
+    <script src="./js/carrosel.js"></script>
+
+</body>
+</html>
