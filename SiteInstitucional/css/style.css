@@ -1,16 +1,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 
 *{
-    font-family: "Inter", sans-serif
+    font-family: "Inter", sans-serif;
+    scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+    /* background-image: url("../assets/images/image\ 1.png"); */
 }
+
+/* Inicio da estilização da header */
+.bemvindo{
+background-image: url("../assets/images/image\ 1.png");
+background-repeat: no-repeat;
+background-size: contain;
+position: relative;
+height: 711px;
+}
+
 .header{
     display: flex;
     justify-content: space-around;
     background-color: transparent;
+    padding: 1%;
+    color: aliceblue;
 }
 
 .logoHeader{
     display: flex;
+    color: aliceblue;
 }
 
 #imagemLogo{
@@ -23,3 +40,29 @@
     list-style: none;
     cursor: pointer;
 }
+/* Fim da estilização da header */
+
+/* Inicio da estilização da home */
+
+.containerHome{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 90vh;
+}
+
+.blocos{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.blocos .bloco{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+/* Fim da estilização da home */
