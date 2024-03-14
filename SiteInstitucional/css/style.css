@@ -121,6 +121,7 @@ ul li a:hover {
   width: 500px;
   display: flex;
   justify-content: center;
+  gap: 30px;
 }
 
 .containerHome .botoesHome .botao {
@@ -180,6 +181,7 @@ ul li a:hover {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  border-radius: .5rem;
 }
 
 .containerHome .blocos .bloco .descricao {
