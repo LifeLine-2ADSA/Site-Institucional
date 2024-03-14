@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;500&display=swap");
+
 * {
   margin: 0;
   font-family: "Poppins", sans-serif;
@@ -20,10 +22,6 @@ body {
   align-items: center;
 }
 
-.formulario .checkbox {
-  display: flex;
-}
-
 .formulario .form {
   width: 250px;
   height: 40px;
@@ -38,9 +36,12 @@ body {
   color: white;
 }
 
-.formulario .checkbox .ipt-box {
-  border: #80b6c2;
-  border-radius: 10px;
+.formulario .checkbox {
+  display: flex;
+}
+
+.formulario .box {
+  cursor: pointer;
 }
 
 .formulario .entrar {
@@ -61,12 +62,12 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1;
 }
 
 .tela img {
   width: 50%;
   height: 50%;
+  z-index: 1;
 }
 
 .circulo {

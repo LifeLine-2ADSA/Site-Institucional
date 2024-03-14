@@ -1,67 +1,69 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;500&display=swap");
 
-*{
-    font-family: "Inter", sans-serif;
-    margin: 0 auto;
+* {
+  font-family: "Inter", sans-serif;
+  /* font-family: "Poppins", sans-serif; */
+  margin: 0 auto;
 }
 
-.sobreNos{
-    display: flex;
-    justify-content: space-around;
+.sobreNos {
+  display: flex;
+  justify-content: space-around;
 
-    margin: 0 5% 0 0; 
-    gap: 15px;
+  margin: 0 5% 0 0;
+  gap: 15px;
 
-    padding-top: 25%;
-    padding-bottom: 10%;
+  padding-top: 25%;
+  padding-bottom: 10%;
 }
 
-.sobreNos h1{
-    padding-bottom: 40px;
+.sobreNos h1 {
+  padding-bottom: 40px;
 }
 
-.boxTexto{
-    text-align: start;
- 
-    align-self: center;
+.boxTexto {
+  text-align: start;
 
-    padding: 5%;
-    padding-bottom: 3%;
+  align-self: center;
+
+  padding: 5%;
+  padding-bottom: 3%;
 }
 
-.porqueLifeLine{
-    background-color: #efeeeec1;
-    padding: 5%;
+.porqueLifeLine {
+  background-color: #efeeeec1;
+  padding: 5%;
 }
 
-.boxMotivo{
-    display: flex;
-    gap: 20px;
+.boxMotivo {
+  display: flex;
+  gap: 20px;
 }
 
-.boxes{
-    margin: 0 10% 0 10%;
+.boxes {
+  margin: 0 10% 0 10%;
 }
 
-.cardMotivo{
-    background-color: white;
-    padding: 25px;
+.cardMotivo {
+  background-color: white;
+  padding: 25px;
 }
 
-.tituloPqLifeLine{
-    text-align: center;
-    margin: 0 10% 0 10%;
+.tituloPqLifeLine {
+  text-align: center;
+  margin: 0 10% 0 10%;
 }
 
-#spanPorque{
-    font-size: 25px;
-    font-weight: 500;
+#spanPorque {
+  font-size: 25px;
+  font-weight: 500;
 }
 
-#destaqueLL{
-    color: #6DB5C5;
+#destaqueLL {
+  color: #6db5c5;
 }
 
-.tituloPqLifeLine p{
-    font-weight: 300;
+.tituloPqLifeLine p {
+  font-weight: 300;
 }
