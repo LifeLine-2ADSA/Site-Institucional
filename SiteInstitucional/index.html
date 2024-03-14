@@ -5,8 +5,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Life Line</title>
+  
+  <link rel="icon" href="assets/images/logoLifeLine.png">
   <link rel="stylesheet" href="./css/style.css">
   <link rel="stylesheet" href="css/sobreNos.css">
+  <link rel="stylesheet" href="css/carrosel.css">
+  <link rel="stylesheet" href="css/styleFooter.css">
 </head>
 
 <body>
@@ -25,6 +29,7 @@
       </ul>
     </div>
     <!-- final da header -->
+
     <!-- Início da home -->
     <div class="containerHome">
       <span class="textoHome">Deseja melhorar sua <b>consulta</b>?</span>
@@ -128,8 +133,117 @@
     </div>
 
   </div>
-
   <!-- Final de sobre nós -->
+
+  <!-- Inicio Life Line Team -->
+  <div class="lifeLineTeam">
+    <div class="headerTeam">
+        <h1 class="tituloTeam">LifeLine Team</h1>
+        <p class="subtituloTeam">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec risus augue.</p>
+    </div>
+    <div class="detalhesTeam">
+        <div class="escolhaMembroTeam">
+            <div class="membroTeam">
+                <img class="arrow" src="./assets/images/arrowLeft.svg" alt="" onclick="membroAnterior()" >
+                <div id="fotoMembroTeam"></div>
+                <img class="arrow" src="./assets/images/arrowRight.svg" alt="" onclick="proximoMembro()">
+
+            </div>
+            <p id="nomeMembro"></p>
+        </div>
+        <div class="descricaoAreaTeam">
+            <h1 id="categoria"></h1>
+            <p id="descricao"></p>
+        </div>
+    </div>
+</div>
+<!-- Fim Line Line Team -->
+
+<!-- Inicio footer -->
+
+<footer>
+  <div class="separador">
+      <div class="linha"></div>
+  </div>
+  <div class="inicio-footer">
+      <div class="fique-dentro">
+          <h2>
+              Fique por dentro!
+          </h2>
+          <div class="caixa-email">
+              <input type="email" placeholder="exemplo@dominio.com">
+              <button>
+                  Enviar
+              </button>
+          </div>
+      </div>
+  </div>
+  <div class="meio-footer">
+      <div class="blocos-info">
+          
+          <div class="bloco">
+              <div class="imagem">
+                  <img src="assets/images/location.png">
+              </div>
+              <div class="texto">
+              <h2>Endereço</h2>
+                  Rua Haddock Lobo, 595 São Paulo - SP
+              </div>
+          </div>
+          <div class="bloco">
+              <div class="imagem">
+                  <img src="assets/images/phone.png">
+              </div>
+              <div class="texto">
+              <h2>Telefone</h2>
+                  (11) 0000-0000
+              </div>
+          </div>
+          <div class="bloco">
+              <div class="imagem">
+                  <img src="assets/images/email.png">
+              </div>
+              <div class="texto">
+              <h2>E-mail</h2>
+                  lifeline@sptech.school
+              </div>
+          </div>
+      </div>
+  </div>
+
+      <div class="fim-footer">
+          <div class="blocos-logo">
+              <div class="bloco">
+                  <div class="imagem">
+                      <img src="assets/images/logo.png" width="170px">
+                  </div>
+                  <div class="texto">
+                  <h3 class="titulo-footer">
+                      LifeLine
+                  </h3><br>
+                      Uma linha direta entre você e o sucesso
+                  </div>
+              </div>
+
+              <div class="bloco-redes">
+                  <h3 class="titulo-redes">
+                      Nos siga!
+                  </h3>
+                  <div class="imagens">
+                      <img src="assets/images/whatsapp.png">
+                      <img src="assets/images/facebook.png">
+                      <img src="assets/images/instagram.png">
+                  </div>
+              </div>
+          </div>
+      </div>
+</footer>
+
+
+<!-- Fim do footer -->
+
+<!-- Import JS carrosel -->
+<script src="./js/carrosel.js"></script>
 </body>
 
 </html>
