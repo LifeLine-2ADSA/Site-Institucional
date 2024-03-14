@@ -12,23 +12,31 @@
     margin: 0 5% 0 0; 
     gap: 15px;
 
-    padding-top: 15%;
+    padding-top: 25%;
+    padding-bottom: 10%;
+}
+
+.sobreNos h1{
+    padding-bottom: 40px;
 }
 
 .boxTexto{
     text-align: start;
  
     align-self: center;
+
+    padding: 5%;
+    padding-bottom: 3%;
 }
 
 .porqueLifeLine{
-    background-color: #D9D9D9;
-    padding: 15px;
+    background-color: #efeeeec1;
+    padding: 5%;
 }
 
 .boxMotivo{
     display: flex;
-    gap: 15px;  
+    gap: 20px;
 }
 
 .boxes{

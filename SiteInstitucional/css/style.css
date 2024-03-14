@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
-html{
-    height: 100vh;
+html {
+  height: 100vh;
 }
 * {
   font-family: "Inter", sans-serif;
@@ -20,7 +20,6 @@ html{
 *::-webkit-scrollbar-thumb {
   background-color: #33919a;
   border-radius: 40px;
-  /* border: 3px solid rgba(255, 255, 255); */
 }
 
 /* Inicio da estilização da header */
@@ -35,13 +34,17 @@ html{
 .header {
   display: flex;
   justify-content: space-around;
+
   background-color: transparent;
-  padding: 2%;
   color: rgb(255, 255, 255);
+
+  padding: 2%;
+  padding-bottom: 5%;
 }
 
 .logoHeader {
   display: flex;
+
   color: rgb(255, 255, 255);
 }
 
@@ -60,6 +63,17 @@ html{
   cursor: pointer;
   align-items: center;
 }
+
+.itensHeader li a{
+    text-decoration: none;
+    color: #fff;
+}
+
+ul li a:hover {
+    color: #58a7b9;
+    transition: 0.6s ease;
+  }
+
 /* Fim da estilização da header */
 
 /* Inicio da estilização da home */
@@ -69,34 +83,60 @@ html{
   justify-content: center;
   align-items: center;
   flex-direction: column;
+
   height: 90vh;
-  color: rgb(255, 255, 255);
   width: 100vw;
+
+  padding-top: 2%;
+
+  gap: 10%;
 }
 
-.containerHome .textoHome{
- font-size: 60px;
+.containerHome .textoHome {
+  font-size: 60px;
+  font-weight: 2px;
+  padding-bottom: 1%;
+  padding-top: 10%;
+  color: #fff;
 }
 
 .containerHome .subtituloHome {
+  align-self: center;
+
   font-size: 20px;
-  font-weight: 10px;
-  padding-top: 20px;
+  font-weight: 5px;
+
+  color: #fff;
+
+  /* padding-top: 20px;
+  padding-bottom: 5%; */
 }
 
-.containerHome .botoesHome{
-    padding-bottom: 10%;
+/* Estilização de botões */
+
+.containerHome .botoesHome {
+    width: 500px;
+    display: flex;
+    justify-content: center;
+  
 }
 
 .containerHome .botoesHome .botao {
+    /* align-self: center; */
+
+    gap:20px;
   height: 40px;
   width: 220px;
-  background-color: rgb(255, 255, 255);
+ 
   border: 0;
-  border-radius: 20px;
+  border-radius: 10px;
+
   cursor: pointer;
+
+  background-color: rgb(255, 255, 255);
   color: #58a7b9;
   box-shadow: 6px 6px 12px #7bc7d7, -6px -6px 12px #dcf4fa;
+
   transition: all 0.3s;
 }
 
@@ -119,6 +159,8 @@ html{
   color: #fff;
 }
 
+/* Fim estilizações de botões */
+
 .containerHome .blocos {
   display: flex;
   justify-content: center;
@@ -126,9 +168,9 @@ html{
   flex-direction: row;
 
   height: 300px;
-  
-  gap: 20px;
+
   padding: 2%;
+  padding-top: 5%;
 }
 
 .containerHome .blocos .bloco {
@@ -136,42 +178,54 @@ html{
   align-items: center;
   justify-content: center;
   flex-direction: column;
+}
+
+.containerHome .blocos .bloco .descricao {
+  text-align: justify;
+  padding: 4%;
+}
+
+.containerHome .blocos #blocoEsquerda {
+    background-color: #fff;
   border: 2px;
-  height: 400px;
-  width: 300px;
-}
+  height: 300px;
+  width: 400px;
 
-.containerHome .blocos .bloco .descricao{
-    text-align: justify;
-    padding: 4%;
-}
-
-.containerHome .blocos #blocoEsquerdo {
+  position: static;
+/* 
   box-shadow: 0px 2.7px 2.2px rgba(0, 0, 0, 0.02),
     0px 6.6px 5.3px rgba(0, 0, 0, 0.028), 0px 12.4px 10px rgba(0, 0, 0, 0.035),
     0px 22.1px 17.9px rgba(0, 0, 0, 0.042),
-    0px 41.4px 33.4px rgba(0, 0, 0, 0.05), 0px 99px 80px rgba(0, 0, 0, 0.07);
+    0px 41.4px 33.4px rgba(0, 0, 0, 0.05), 0px 99px 80px rgba(0, 0, 0, 0.07); */
+    box-shadow: -1px -1px 20px 10px rgba(149, 187, 197, 0.78);
 }
 
 .containerHome .blocos #blocoCentro {
-  /* box-shadow: 15px 15px 30px #bebebe, -15px -15px 30px #ffffff; */
+    background-color: #fff;
+  border: 2px;
+  height: 400px;
+  width: 400px;
   position: relative;
-  box-shadow:
-  -0.1px -0.1px 2.2px rgba(0, 0, 0, 0.025),
-  -0.1px -0.1px 5.3px rgba(0, 0, 0, 0.036),
-  0.2px 0.2px 10px rgba(0, 0, 0, 0.045),
-  1.1px 1.1px 17.9px rgba(0, 0, 0, 0.054),
-  3.7px 3.7px 33.4px rgba(0, 0, 0, 0.065),
-  30px 30px 80px rgba(0, 0, 0, 0.09);
+  /* box-shadow: -0.1px -0.1px 2.2px rgba(0, 0, 0, 0.025),
+    -0.1px -0.1px 5.3px rgba(0, 0, 0, 0.036),
+    0.2px 0.2px 10px rgba(0, 0, 0, 0.045),
+    1.1px 1.1px 17.9px rgba(0, 0, 0, 0.054),
+    3.7px 3.7px 33.4px rgba(0, 0, 0, 0.065), 30px 30px 80px rgba(0, 0, 0, 0.09); */
+    box-shadow: -1px -1px 20px 10px rgba(149, 187, 197, 0.78);
 }
 
 .containerHome .blocos #blocoDireita {
-  box-shadow: 2.8px 2.8px 2.2px rgba(0, 0, 0, 0.02),
-    6.7px 6.7px 5.3px rgba(0, 0, 0, 0.028),
-    12.5px 12.5px 10px rgba(0, 0, 0, 0.035),
-    22.3px 22.3px 17.9px rgba(0, 0, 0, 0.042),
-    41.8px 41.8px 33.4px rgba(0, 0, 0, 0.05),
-    100px 100px 80px rgba(0, 0, 0, 0.07);
+    background-color: #fff;
+  border: 2px;
+  height: 300px;
+  width: 400px;
+  /* box-shadow: 2.8px 2.8px 2.2px rgba(149, 187, 197, 0.421),
+    6.7px 6.7px 5.3px rgba(149, 187, 197, 0.321),
+    12.5px 12.5px 10px rgba(149, 187, 197, 0.33),
+    22.3px 22.3px 17.9px rgba(149, 187, 197, 0.636),
+    41.8px 41.8px 33.4px rgba(149, 187, 197, 0.492),
+    100px 100px 80px rgba(149, 187, 197, 0.403); */
+    box-shadow: -1px -1px 20px 10px rgba(149, 187, 197, 0.78);
 }
 
 /* Fim da estilização da home */
