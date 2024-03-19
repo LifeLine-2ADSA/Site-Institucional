@@ -10,10 +10,12 @@ html {
   scroll-behavior: smooth;
   margin: 0;
   padding: 0;
+  
 }
 
 *::-webkit-scrollbar {
   width: 8px;
+  /* overflow-x: hidden; */
 }
 
 *::-webkit-scrollbar-track {
@@ -29,9 +31,10 @@ html {
 .bemvindo {
   background-image: url("../assets/images/image\ 1.png");
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
   position: relative;
   height: 711px;
+  width: 100vw;
 }
 
 .header {
@@ -40,7 +43,7 @@ html {
 
   background-color: transparent;
   color: rgb(255, 255, 255);
-
+  width: 100vw;
   padding: 2%;
   padding-bottom: 5%;
 }

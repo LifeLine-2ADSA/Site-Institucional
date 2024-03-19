@@ -17,7 +17,7 @@ var members = [
     {
         name: "Amanda",
         category: "Front-End",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec molestie mi eu aliquet ullamcorper. Pellentesque rutrum ante urna, nec finibus odio tempor sagittis. Aliquam vitae mollis tellus. Maecenas pharetra bibendum venenatis. Mauris quis placerat elit. Nulla vitae condimentum felis. In luctus a lorem a ultrices. Duis viverra, odio eget molestie mattis, dui leo accumsan dui, interdum auctor velit elit tincidunt leo."
+        description: "Desde o começo da minha jornada em tecnologia, sempre fui apaixonada pela área do Front-End. Gosto de me desafiar e aprender coisas novas e atualmente estou me aventurando na área de Dados."
     },
     {
         name: "Gabriel",
