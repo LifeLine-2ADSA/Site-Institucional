@@ -3,33 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LL | Login</title>
-    <!-- <link rel="icon" href="">  -->
-    <!-- Fonte -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="login-cadastro.css">
+    <title>Life Line | Cadastro</title>
+    <link rel="icon" href=".//assets/images/logoLifeLine.png"> 
+    <link rel="stylesheet" href="css/cadastro.css">
 </head>
 <body>
     <div class="formulario">
-        <h1>Login</h1>
+        <h1>Cadastro</h1>
 
         <form action="form" class="form">
+        <input type="text" id="email" placeholder="NOME">
+        
         <input type="text" id="email" placeholder="EMAIL">
         <br>
-        <input type="text" id="senha" placeholder="SENHA">
+        <input type="text" id="cpf" placeholder="CPF">
+        
+        <input type="text" id="telefone" placeholder="TELEFONE">
+        <br>
+        <input type="text" id="logradouro" placeholder="LOGRADOURO">
+        
+        <input type="text" id="cargo" placeholder="CARGO">
+        <br>
+        <input type="text" id="senha" placeholder="CRIE UMA SENHA">
+        
+        <input type="text" id="repitaSenha" placeholder="REPITA SUA SENHA">
+        <br>
         </form>
-        <div class="checkbox">
-        <input type="checkbox"><p>Lembre de mim</p>
-        </div>
-        <button class="entrar">
-            ENTRAR
-        </button>
+        <label class="checkbox">
+            <input type="checkbox" class="box">
+            <p style="margin: 10px;">Lembre de mim</p>
+        </label>
+        <button class="entrar">CADASTRAR</button>
+        
     </div>
 
     <div class="tela">
-        <img src="../Downloads/LOGO.png">
+        <img src="../SiteInstitucional/assets/images/undraw_My_password_re_ydq7-removebg-preview.png">
     </div>
     <div class="circulo"></div>
 </body>
