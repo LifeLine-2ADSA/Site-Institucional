@@ -37,18 +37,21 @@
 
 .membroTeam {
     display: flex;
+    align-items: center;
     gap: 30px;
 }
 
 #fotoMembroTeam {
-    background-color: #D9D9D9;
     width: 250px;
     height: 250px;
     border-radius: 100%;
+    background-position: center;
+    background-size: cover;
 }
 
 .arrow {
     cursor: pointer;
+    height: max-content;
 }
 
 .descricaoAreaTeam {
