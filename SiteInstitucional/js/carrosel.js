@@ -3,7 +3,7 @@ var members = [
         name: "Amanda",
         category: "Front-End",
         description: "Desde o começo da minha jornada em tecnologia, sempre fui apaixonada pela área do Front-End. Gosto de me desafiar e aprender coisas novas e atualmente estou me aventurando na área de Dados.",
-        photo: 'url(./assets/images/guedes.png)'
+        photo: 'url(./assets/images/amanda.jpeg)'
     },
     {
         name: "Carlos",
