@@ -26,7 +26,7 @@ var members = [
     {
         name: "Pedro",
         category: "Back-End",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec molestie mi eu aliquet ullamcorper. Pellentesque rutrum ante urna, nec finibus odio tempor sagittis. Aliquam vitae mollis tellus. Maecenas pharetra bibendum venenatis. Mauris quis placerat elit. Nulla vitae condimentum felis. In luctus a lorem a ultrices. Duis viverra, odio eget molestie mattis, dui leo accumsan dui, interdum auctor velit elit tincidunt leo.",
+        description: "O funcionário de back-end constrói os alicerces invisíveis que sustentam a inovação digital, transformando desafios em oportunidades com sua expertise e determinação incansável.",
         photo: 'url(./assets/images/pedro.png)'
     },
     {
