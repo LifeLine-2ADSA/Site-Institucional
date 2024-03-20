@@ -8,7 +8,7 @@ var members = [
     {
         name: "Carlos",
         category: "Full-Stack",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec molestie mi eu aliquet ullamcorper. Pellentesque rutrum ante urna, nec finibus odio tempor sagittis. Aliquam vitae mollis tellus. Maecenas pharetra bibendum venenatis. Mauris quis placerat elit. Nulla vitae condimentum felis. In luctus a lorem a ultrices. Duis viverra, odio eget molestie mattis, dui leo accumsan dui, interdum auctor velit elit tincidunt leo.",
+        description: "Na vida eu sempre gostei de desafios e explorar coisas novas, e acredito que a curiosidade me fez chegar aonde estou, na Life Line tenho a possibilidade de fazer o que realmente gosto e está sendo uma jornada bem interessante.",
         photo: 'url(./assets/images/carlos.png)'
     },
     {
