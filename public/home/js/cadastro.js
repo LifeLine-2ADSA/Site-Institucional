@@ -3,7 +3,7 @@ function cadastrar() {
   let emailVar = email_input.value;
   let senhaVar = senha_input.value;
   let confirmacaoSenhaVar = senha2_input.value;
-  let cnpjVar = cnpj_input.value;
+  let cnpjVar = 100; //cnpj_input.value;
   let cpfVar = cpf_input.value;
   let telefoneVar = telefone_input.value;
   let cargoVar = cargo_input.value;
@@ -63,7 +63,6 @@ function cadastrar() {
       })
       .catch(function (resposta) {
         console.log(`#ERRO: ${resposta}`);
-        finalizarAguardar();
       });
   }
 }
