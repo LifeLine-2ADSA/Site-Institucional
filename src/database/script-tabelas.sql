@@ -158,3 +158,6 @@ JOIN maquina m ON r.fkMaquina = m.idMaquina;
 SELECT e1.nome AS Empresa, e2.nome AS Matriz
 FROM empresa e1
 LEFT JOIN empresa e2 ON e1.matriz = e2.idEmpresa;
+
+SELECT * FROM maquina m JOIN usuario_maquina um ON m.idMaquina = um.fkMaquina
+  JOIN usuario u ON um.fkUsuario = u.idUsuario;

@@ -20,19 +20,19 @@ function autenticar(req, res) {
           console.log(resultadoAutenticar);
 
           maquinaModel
-            .buscarmaquinasPorEmpresa(resultadoAutenticar[0].empresaId)
-            .then((resultadomaquinas) => {
-              if (resultadomaquinas.length > 0) {
-                res.json({
-                  id: resultadoAutenticar[0].idUsuario,
-                  email: resultadoAutenticar[0].email,
-                  nome: resultadoAutenticar[0].nome,
-                  senha: resultadoAutenticar[0].senha,
-                  // maquinas: resultadomaquinas,
-                });
-              } else {
-                res.status(204).json({ maquinas: [] });
-              }
+            .buscarMaquinasPorUsuario(resultadoAutenticar[0].idUsuario)
+            .then((resultadoMaquinas) => {
+              // if (resultadoMaquinas.length > 0) {
+              res.json({
+                id: resultadoAutenticar[0].idUsuario,
+                email: resultadoAutenticar[0].email,
+                nome: resultadoAutenticar[0].nome,
+                senha: resultadoAutenticar[0].senha,
+                maquinas: resultadoMaquinas,
+              });
+              // } else {
+              //   res.status(204).json({ maquinas: [] });
+              // }
             });
         } else if (resultadoAutenticar.length == 0) {
           res.status(403).send("Email e/ou senha inválido(s)");

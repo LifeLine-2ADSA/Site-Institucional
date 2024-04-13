@@ -66,3 +66,19 @@ function cadastrar() {
       });
   }
 }
+
+function listarEmpresas() {
+  fetch("/empresas/listar", {
+    method: "GET",
+  })
+    .then(function (resposta) {
+      resposta.json().then((empresas) => {
+        empresas.forEach((empresa) => {
+          listaEmpresas.innerHTML += `<option value='${empresa.idEmpresa}'>${empresa.cnpj}</option>`;
+        });
+      });
+    })
+    .catch(function (resposta) {
+      console.log(`#ERRO: ${resposta}`);
+    });
+}

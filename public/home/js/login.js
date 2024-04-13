@@ -23,7 +23,8 @@ function autenticar() {
           resposta.json().then((json) => {
             sessionStorage.EMAIL_USUARIO = json.email;
             sessionStorage.NOME_USUARIO = json.nome;
-            sessionStorage.ID_USUARIO = json.idUsuario;
+            sessionStorage.ID_USUARIO = json.id;
+            sessionStorage.MAQUINAS_USUARIO = JSON.stringify(json.maquinas);
 
             setTimeout(function () {
               window.location = "home/perfil.html";
