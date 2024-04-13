@@ -6,8 +6,8 @@
 comandos para mysql server
 */
 
--- drop database lifeline;
 CREATE DATABASE lifeline;
+-- DROP DATABASE lifeline;
 USE lifeline;
 
 -- Criando tabelas 
@@ -37,23 +37,15 @@ CREATE TABLE usuario(
 
 CREATE TABLE maquina(
 	idMaquina INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(50),
     ip VARCHAR(20),
     sistemaOperacional VARCHAR(45),
     limiteCpu DOUBLE,
     limiteRam DOUBLE,
     limiteDisco DOUBLE,
-    qtdDispositivosConectados INT
-)auto_increment = 500;
-
-CREATE TABLE usuario_maquina(
-	idUsuarioMaquina INT AUTO_INCREMENT,
-    fkMaquina INT,
     fkUsuario INT,
-    nomeMaquina VARCHAR(45),
-    CONSTRAINT fkMaquinaWUsuario FOREIGN KEY (fkMaquina) references maquina(idMaquina),
-    CONSTRAINT fkUsuarioWMaquina FOREIGN KEY (fkUsuario) REFERENCES usuario(idUsuario),
-    PRIMARY KEY(idUsuarioMaquina, fkMaquina, fkUsuario)
-) auto_increment = 200;
+    CONSTRAINT fkMaquinaUser FOREIGN KEY (fkUsuario) REFERENCES usuario(idUsuario)
+)auto_increment = 500;
 
 CREATE TABLE postagem (
 	idPostagem INT AUTO_INCREMENT,
@@ -61,8 +53,6 @@ CREATE TABLE postagem (
     conteudo VARCHAR(1000), 
     tag VARCHAR(45),
     fkUsuario INT,
-    fkMaquina INT,
-    CONSTRAINT fkMaquinaWPostagem FOREIGN KEY (fkMaquina) REFERENCES maquina(idMaquina),
     CONSTRAINT fkPostagemWUser FOREIGN KEY (fkUsuario) REFERENCES usuario(idUsuario),
     PRIMARY KEY (idPostagem, fkUsuario)
 )auto_increment=300;
@@ -93,34 +83,26 @@ INSERT INTO empresa (nome, cnpj, logradouro, email, telefone, matriz) VALUES
 ('Web Creators', '45678901234567', 'Alameda dos Desenvolvedores, 550', 'contact@webcreators.com', '41987654321', NULL),
 ('Data Science Corp', '56789012345678', 'Via dos Analistas, 700', 'support@datasciencecorp.com', '51987654321', 103);
 
-INSERT INTO maquina (ip, sistemaOperacional, limiteCpu, limiteRam, limiteDisco, qtdDispositivosConectados) VALUES 
-('192.168.1.1', 'Windows Server 2019', 2.3, 8.0, 500.0, 10),
-('10.20.30.40', 'Ubuntu 20.04', 3.5, 16.0, 1024.0, 20),
-('172.16.0.1', 'Red Hat Enterprise Linux 8', 2.9, 32.0, 2048.0, 30),
-('192.168.2.1', 'Windows 10 Pro', 3.7, 64.0, 256.0, 5),
-('10.0.0.1', 'Debian 10', 2.5, 4.0, 512.0, 15);
-
 INSERT INTO usuario (nome, endereco, telefone, cargo, senha, email, cpf, fkEmpresa) VALUES 
-('João Silva', 'Rua dos Usuários, 123', '11912345678', 'Profissional da saúde', 'senha123', 'joao@techinnovations.com', '12345678901', 100),
+('João Silva', 'Rua dos Usuários, 123', '11912345678', 'Profissional da saúde', 'senha123', 'joao@techinnovations.com', '12345678901', NULL),
 ('Maria Oliveira', 'Av. dos Testadores, 456', '21987654321', 'Profissional de TI', 'senha456', 'maria@solucoesint.com', '23456789012', 100),
 ('Carlos Pereira', 'Alameda dos Programadores, 789', '31987654321', 'Profissional de TI', 'senha789', 'carlos@devdreams.com', '34567890123', 102),
 ('Ana Costa', 'Rua da Inovação, 101', '41987654321', 'Profissional da saúde', 'senha012', 'ana@webcreators.com', '45678901234', 102),
 ('Roberto Nascimento', 'Av. dos Desenvolvedores, 202', '51987654321', 'Profissional da saúde', 'senha345', 'roberto@datasciencecorp.com', '56789012345', NULL);
 
-INSERT INTO usuario_maquina (fkMaquina, fkUsuario, nomeMaquina) VALUES 
-(500, 1, 'Maquina-Joao'),
-(501, 2, 'Maquina-Maria'),
-(502, 3, 'Maquina-Carlos'),
-(503, 4, 'Maquina-Ana'),
-(504, 5, 'Maquina-Roberto');
+INSERT INTO maquina (nome, ip, sistemaOperacional, limiteCpu, limiteRam, limiteDisco, fkUsuario) VALUES 
+('Pc Casa', '192.168.1.1', 'Windows Server 2019', 2.3, 8.0, 500.0, 1),
+('Notebook Empresa', '10.20.30.40', 'Ubuntu 20.04', 3.5, 16.0, 1024.0, 2),
+('Computador Trabalho', '172.16.0.1', 'Red Hat Enterprise Linux 8', 2.9, 32.0, 2048.0, 3),
+('Fonte de Sofrimento', '192.168.2.1', 'Windows 10 Pro', 3.7, 64.0, 256.0, 4),
+('Não sabo colocar nome', '10.0.0.1', 'Debian 10', 2.5, 4.0, 512.0, 5);
 
-
-INSERT INTO postagem (titulo, conteudo, tag, fkUsuario, fkMaquina) VALUES 
-('Nova Tecnologia', 'Conteúdo sobre nova tecnologia...', 'RAM', 1, 500),
-('Inovação no Mercado', 'Analisando a inovação no mercado atual...', 'RAM', 2, 501),
-('Segurança da Informação', 'Importância da segurança da informação...', 'CPU', 3, 502),
-('Big Data no dia a dia', 'Como o Big Data afeta nosso dia a dia...', 'DISCO', 4, 503),
-('Inteligência Artificial', 'O futuro da IA...', 'CPU', 5, 504);
+INSERT INTO postagem (titulo, conteudo, tag, fkUsuario) VALUES 
+('Nova Tecnologia', 'Conteúdo sobre nova tecnologia...', 'RAM', 1),
+('Inovação no Mercado', 'Analisando a inovação no mercado atual...', 'RAM', 2),
+('Segurança da Informação', 'Importância da segurança da informação...', 'CPU', 3),
+('Big Data no dia a dia', 'Como o Big Data afeta nosso dia a dia...', 'DISCO', 4),
+('Inteligência Artificial', 'O futuro da IA...', 'CPU', 5);
 
 
 INSERT INTO registro (dataHora, fkMaquina, consumoDisco, consumoRam, consumoCpu, totalDispositivosConectados) VALUES 
@@ -138,16 +120,14 @@ FROM usuario u
 LEFT JOIN empresa e ON u.fkEmpresa = e.idEmpresa;
 
 -- Consulta para visualizar máquinas e informações do usuário associado
-SELECT m.idMaquina, m.ip, m.sistemaOperacional, um.nomeMaquina, u.nome AS NomeUsuario, u.cargo
+SELECT m.idMaquina, m.nome, m.ip, m.sistemaOperacional, u.nome AS NomeUsuario, u.cargo
 FROM maquina m
-JOIN usuario_maquina um ON m.idMaquina = um.fkMaquina
-JOIN usuario u ON um.fkUsuario = u.idUsuario;
+JOIN usuario u ON m.fkUsuario = u.idUsuario;
 
 -- Consulta para visualizar postagens, autores e máquinas
-SELECT p.titulo, p.conteudo, p.tag, u.nome AS Autor, m.*
+SELECT p.titulo, p.conteudo, p.tag, u.nome AS Autor
 FROM postagem p
-JOIN usuario u ON p.fkUsuario = u.idUsuario
-JOIN maquina m ON p.fkMaquina = m.idMaquina;
+JOIN usuario u ON p.fkUsuario = u.idUsuario;
 
 -- Consulta para visualizar o registro de uso de uma máquina
 SELECT m.idMaquina, m.ip, r.dataHora, r.consumoCpu, r.consumoRam, r.consumoDisco, r.totalDispositivosConectados
@@ -158,6 +138,3 @@ JOIN maquina m ON r.fkMaquina = m.idMaquina;
 SELECT e1.nome AS Empresa, e2.nome AS Matriz
 FROM empresa e1
 LEFT JOIN empresa e2 ON e1.matriz = e2.idEmpresa;
-
-SELECT * FROM maquina m JOIN usuario_maquina um ON m.idMaquina = um.fkMaquina
-  JOIN usuario u ON um.fkUsuario = u.idUsuario;

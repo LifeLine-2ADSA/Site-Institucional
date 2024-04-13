@@ -1,8 +1,7 @@
 var database = require("../database/config");
 
 function buscarMaquinasPorUsuario(idUsuario) {
-  var instrucaoSql = `SELECT m.*, um.* FROM maquina m JOIN usuario_maquina um ON m.idMaquina = um.fkMaquina
-  JOIN usuario u ON um.fkUsuario = u.idUsuario WHERE idUsuario = ${idUsuario};`;
+  var instrucaoSql = `SELECT * FROM maquina ON usuario JOIN maquina.fkUsuario = usuario.idUsuario WHERE idUsuario = ${idUsuario};`;
 
   console.log("Executando a instrução SQL: \n" + instrucaoSql);
   return database.executar(instrucaoSql);
