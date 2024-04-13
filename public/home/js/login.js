@@ -6,7 +6,7 @@ function autenticar() {
     alert("Campos vazios! Preencha!")
     return false;
   } else {
-    setInterval(sumirMensagem, 5000)
+    setInterval(500)
     fetch("/usuarios/autenticar", {
       method: "POST",
       headers: {
@@ -31,7 +31,7 @@ function autenticar() {
             sessionStorage.ID_USUARIO = json.idUsuario;
   
             setTimeout(function () {
-              window.location.ref = "./perfil.html";
+              window.location.ref = "perfil.html";
             }, 1000); // apenas para exibir o loading
           });
         } else {
