@@ -24,7 +24,7 @@
 }
 
 body {
-  overflow: hidden;
+  width: 100vw;
 }
 
 /* Inicio da estilização da header */
@@ -32,14 +32,13 @@ body {
   background-image: url("../assets/images/image\ 1.png");
   background-repeat: no-repeat;
   background-size: cover;
-  position: static;
 
   height: 711px;
   width: 100vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  z-index: 5;
+  overflow: hidden;
 }
 
 .header {
@@ -50,8 +49,8 @@ body {
 
   background-color: transparent;
   color: rgb(255, 255, 255);
-  width: 100vw;
-
+  width: 100%;
+  top: 0;
 }
 
 .logoHeader {
@@ -73,6 +72,7 @@ body {
 @keyframes navbarAnimationOpen {
   to {
     right: 0;
+    display: flex;
   }
 
   from {
@@ -87,6 +87,7 @@ body {
 
   from {
     right: 0;
+    display: none;
   }
 }
 
@@ -141,7 +142,7 @@ ul li a:hover {
 }
 
 .containerHome .subtituloHome {
-  align-self: center;
+  text-align: center;
 
   font-size: 20px;
   font-weight: 5px;
@@ -207,7 +208,6 @@ ul li a:hover {
   align-items: center;
   flex-direction: row;
 
-  z-index: 1000;
 }
 
 .blocos .bloco {
@@ -216,7 +216,7 @@ ul li a:hover {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  border-radius: .5rem;
+  border-radius: 0.5rem;
 }
 
 .blocos .bloco .descricao {
@@ -271,7 +271,7 @@ ul li a:hover {
 
 /*Breakpoint para mobile*/
 
-@media(min-width: 640px) {
+@media (min-width: 320px) {
   .containerHome {
     display: flex;
     justify-content: center;
@@ -299,9 +299,10 @@ ul li a:hover {
   }
 
   .itensHeader {
+    display: none;
     flex-direction: column;
     cursor: pointer;
-    background-color: #A9CAD1;
+    background-color: #a9cad1;
     position: absolute;
     padding: 0.5rem;
     border-radius: 0.3rem 0 0 0.3rem;
@@ -321,11 +322,17 @@ ul li a:hover {
   }
 
   .containerHome .textoHome {
-    font-size: 60px;
+    font-size: 40px;
     font-weight: 2px;
     padding-bottom: 1%;
     color: #fff;
     text-align: center;
+  }
+
+  .containerHome .subtituloHome {
+    font-size: 16px;
+    font-weight: 5px;
+
   }
 
   .blocos {
@@ -335,6 +342,13 @@ ul li a:hover {
     flex-direction: column;
     margin-top: -50px;
     gap: 20px;
+    z-index: 1000;
+  }
+
+  .blocos #blocoEsquerda,
+  .blocos #blocoCentro,
+  .blocos #blocoDireita {
+    width: fit-content;
   }
 
   /*Sobre nós*/
@@ -362,12 +376,30 @@ ul li a:hover {
     width: 100% !important;
   }
 
+  .lifeLineTeam {
+    color: white;
+    padding: 50px 0;
+  }
+
   .detalhesTeam {
     flex-direction: column;
     align-items: center;
   }
 
+  .caixa-email input {
+    width: 70%;
+  }
+
+  .caixa-email {
+    flex-direction: column;
+  }
+
+  .meio-footer {
+    padding: 1rem 0;
+  }
+
   .blocos-logo {
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
@@ -375,10 +407,9 @@ ul li a:hover {
   }
 
   .blocos-info {
+    flex-direction: column;
     width: 100%;
-    flex-wrap: wrap;
     gap: 2rem;
-    height: 11vw;
   }
 
   .fim-footer .bloco {
@@ -396,7 +427,19 @@ ul li a:hover {
     width: 40px;
     height: 45px;
   }
+}
 
+@media (min-width: 640px) {
+
+  .blocos #blocoEsquerda,
+  .blocos #blocoCentro,
+  .blocos #blocoDireita {
+    width: 400px;
+  }
+
+  .caixa-email input {
+    width: 390px;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -432,6 +475,7 @@ ul li a:hover {
   }
 
   .itensHeader {
+    display: flex;
     flex-direction: row;
     background-color: transparent;
     position: static;
@@ -451,8 +495,18 @@ ul li a:hover {
     gap: 0;
   }
 
+  .blocos #blocoEsquerda,
+  .blocos #blocoCentro,
+  .blocos #blocoDireita {
+    width: 400px;
+  }
+
   .boxMotivo {
     flex-direction: row;
+  }
+
+  .lifeLineTeam {
+    padding: 50px 200xp;
   }
 
   .detalhesTeam {
@@ -460,13 +514,21 @@ ul li a:hover {
     gap: 10px;
     align-items: center;
   }
+
+  .meio-footer {
+    padding: 3rem 0;
+  }
+
+  .blocos-info {
+    flex-direction: row;
+  }
+
+  .blocos-logo {
+    flex-direction: row;
+  }
 }
 
 @media (min-width: 1280px) {
-  .header {
-    position: absolute;
-    justify-content: space-around;
-  }
 
   .containerHome {
     display: flex;
@@ -479,25 +541,9 @@ ul li a:hover {
     gap: 1rem;
   }
 
-  .header {
-    padding: 0 2rem;
-  }
-
-  .menu {
-    height: fit-content;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .menu img {
-    display: none;
-  }
-
   .itensHeader {
     flex-direction: row;
     background-color: transparent;
-    position: static;
     padding: 0.5rem;
     border-radius: 0.3rem 0 0 0.3rem;
   }

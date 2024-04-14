@@ -11,6 +11,9 @@
   margin: 0 0 3rem 0;
 }
 
+#imageSobreNos {
+  width: 100%;
+}
 
 .boxTexto {
   display: flex;
