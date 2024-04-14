@@ -23,6 +23,10 @@
   border-radius: 40px;
 }
 
+body {
+  overflow: hidden;
+}
+
 /* Inicio da estilização da header */
 .bemvindo {
   background-image: url("../assets/images/image\ 1.png");
@@ -40,16 +44,18 @@
 
 .header {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
 
   background-color: transparent;
   color: rgb(255, 255, 255);
   width: 100vw;
-  padding: 2%;
-  padding-bottom: 5%;
+
 }
 
 .logoHeader {
+  height: fit-content;
   display: flex;
 
   color: rgb(255, 255, 255);
@@ -61,6 +67,37 @@
 
 #imagemLogo {
   width: 100px;
+  height: 100px;
+}
+
+@keyframes navbarAnimationOpen {
+  to {
+    right: 0;
+  }
+
+  from {
+    right: -135px;
+  }
+}
+
+@keyframes navbarAnimationClose {
+  to {
+    right: -135px;
+  }
+
+  from {
+    right: 0;
+  }
+}
+
+.itensHeaderOpen {
+  top: 80px;
+  animation: navbarAnimationOpen 0.7s forwards;
+}
+
+.itensHeaderClose {
+  top: 80px;
+  animation: navbarAnimationClose 0.7s forwards;
 }
 
 .itensHeader {
@@ -94,16 +131,12 @@ ul li a:hover {
   height: 90vh;
   width: 100vw;
 
-  padding-top: 2%;
-
   gap: 10%;
 }
 
 .containerHome .textoHome {
   font-size: 60px;
   font-weight: 2px;
-  padding-bottom: 1%;
-  padding-top: 10%;
   color: #fff;
 }
 
@@ -247,18 +280,33 @@ ul li a:hover {
 
     height: max-content;
 
-    padding-top: 2%;
-
-    gap: 10%;
+    gap: 1rem;
   }
 
   .header {
-    display: none;
-    justify-content: space-around;
+    padding: 0 2rem;
+  }
 
-    width: auto;
-    padding: 2%;
-    padding-bottom: 5%;
+  .menu {
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .menu img {
+    width: 40px;
+  }
+
+  .itensHeader {
+    flex-direction: column;
+    cursor: pointer;
+    background-color: #A9CAD1;
+    position: absolute;
+    padding: 0.5rem;
+    border-radius: 0.3rem 0 0 0.3rem;
+    top: 80px;
+    right: -135px;
   }
 
   .bemvindo {
@@ -276,7 +324,6 @@ ul li a:hover {
     font-size: 60px;
     font-weight: 2px;
     padding-bottom: 1%;
-    padding-top: 10%;
     color: #fff;
     text-align: center;
   }
@@ -300,8 +347,11 @@ ul li a:hover {
 
   .boxTexto {
     padding: 0 10%;
-    text-align: center;
+  }
 
+  .boxTexto h1,
+  .boxTexto p {
+    text-align: center;
   }
 
   .boxMotivo {
@@ -326,24 +376,151 @@ ul li a:hover {
 
   .blocos-info {
     width: 100%;
+    flex-wrap: wrap;
     gap: 2rem;
     height: 11vw;
   }
 
-  .bloco {
+  .fim-footer .bloco {
     font-size: 12px;
-    flex-direction: column;
     align-items: center;
     padding: 8px;
     text-align: center;
   }
 
+  .blocos-info .bloco {
+    gap: 20px;
+  }
+
+  .blocos-info .bloco img {
+    width: 40px;
+    height: 45px;
+  }
+
 }
 
-@media(max-width: 1024px) {
-  .containerHome .botoesHome {
+@media (min-width: 1024px) {
+  .header {
+    position: absolute;
+    justify-content: space-around;
+  }
+
+  .containerHome {
     display: flex;
     justify-content: center;
-    gap: 30px;
+    align-items: center;
+    flex-direction: column;
+
+    height: max-content;
+
+    gap: 1rem;
+  }
+
+  .header {
+    padding: 0 2rem;
+  }
+
+  .menu {
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .menu img {
+    display: none;
+  }
+
+  .itensHeader {
+    flex-direction: row;
+    background-color: transparent;
+    position: static;
+    padding: 0.5rem;
+    border-radius: 0.3rem 0 0 0.3rem;
+  }
+
+  .containerHome .botoesHome {
+    flex-direction: row;
+  }
+
+  .blocos {
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin-top: -50px;
+    gap: 0;
+  }
+
+  .boxMotivo {
+    flex-direction: row;
+  }
+
+  .detalhesTeam {
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+  }
+}
+
+@media (min-width: 1280px) {
+  .header {
+    position: absolute;
+    justify-content: space-around;
+  }
+
+  .containerHome {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    height: max-content;
+
+    gap: 1rem;
+  }
+
+  .header {
+    padding: 0 2rem;
+  }
+
+  .menu {
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .menu img {
+    display: none;
+  }
+
+  .itensHeader {
+    flex-direction: row;
+    background-color: transparent;
+    position: static;
+    padding: 0.5rem;
+    border-radius: 0.3rem 0 0 0.3rem;
+  }
+
+  .containerHome .botoesHome {
+    flex-direction: row;
+  }
+
+  .blocos {
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin-top: -50px;
+    gap: 0;
+  }
+
+  .boxMotivo {
+    flex-direction: row;
+  }
+
+  .detalhesTeam {
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
   }
 }

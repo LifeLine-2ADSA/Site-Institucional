@@ -66,17 +66,13 @@
 .meio-footer {
     padding: 3rem 0;
     background-color: #6db5c5;
+    height: fit-content;
 
     .blocos-info {
         display: flex;
         justify-content: center;
         align-items: center;
         height: 11vw;
-    }
-
-    .imagem {
-        height: 55px;
-        width: 55px;
     }
 
     .imagem:hover {
