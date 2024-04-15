@@ -340,7 +340,108 @@ ul li a:hover {
 
 }
 
-@media(max-width: 1024px) {
+@media(min-width: 768px) {
+  .containerHome {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    height: max-content;
+
+    padding-top: 2%;
+
+    gap: 10%;
+  }
+
+  .header {
+    display: none;
+    justify-content: space-around;
+
+    width: auto;
+    padding: 2%;
+    padding-bottom: 5%;
+  }
+
+  .bemvindo {
+    height: 600px;
+  }
+
+  .containerHome .botoesHome {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .containerHome .textoHome {
+    font-size: 60px;
+    font-weight: 2px;
+    padding-bottom: 1%;
+    padding-top: 10%;
+    color: #fff;
+    text-align: center;
+  }
+
+  .blocos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: -50px;
+    gap: 20px;
+  }
+
+  /*Sobre nós*/
+
+  .sobreNos {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .boxTexto {
+    padding: 0 10%;
+    text-align: center;
+
+  }
+
+  .boxMotivo {
+    flex-direction: column;
+  }
+
+  .cardMotivo {
+    width: 100% !important;
+  }
+
+  .detalhesTeam {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .blocos-logo {
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 2rem;
+  }
+
+  .blocos-info {
+    width: 100%;
+    gap: 2rem;
+    height: 11vw;
+  }
+
+  .bloco {
+    font-size: 12px;
+    flex-direction: column;
+    align-items: center;
+    padding: 8px;
+    text-align: center;
+  }
+}
+
+@media(min-width: 1024px) {
   .containerHome .botoesHome {
     display: flex;
     justify-content: center;

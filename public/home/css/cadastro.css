@@ -7,10 +7,10 @@
 }
 
 body {
-  background-color: #80b6c2;
-  height: 500px;
-  display: flex;
-  justify-content: center;
+    background-color: #80b6c2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .formulario {
@@ -51,7 +51,7 @@ body {
 
 .tela img {
   width: 60%;
-  /* height: 50%; */
+  height: 50%;
   z-index: 1;
   padding-top: 87px;
 }
@@ -82,3 +82,73 @@ body {
   background-color: #a3c4cb;
   color: white;
 }
+
+.selectEmpresas{
+  width: 250px;
+  height: 40px;
+  border-radius: 25px;
+  text-align: center;
+  background-color: #a3c4cb;
+  color: white;
+  border: 0;
+  margin: 5px;
+}
+
+@media(min-width:360px){
+  
+  body{
+    flex-direction: column-reverse;
+
+  }
+
+ 
+    .formulario  {
+    width: 60%;
+    height: 125%;
+    align-items: center;
+    z-index: 1;
+   
+    
+  }
+
+  .form{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  
+  .tela {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .tela img {
+    width: 50%;
+    height: 50%;
+    z-index: 1;
+  }
+  
+  .circulo {
+    height: 69vh;
+    width: 70vh;
+    background-color: #80b6c2;
+    position: fixed;
+    margin-top: 50%;
+    margin-left: 0%;
+    margin-top: 100%;
+    border-radius: 100%;
+  }     
+  
+  
+ 
+  }
+
+  @media(min-width:1024px){
+    body{
+      flex-direction: row;
+    }
+
+  }
