@@ -78,6 +78,7 @@ body {
   margin-top: 50%;
   margin-left: 100%;
   border-radius: 100%;
+<<<<<<< HEAD
 }
 
 /*Breakpoint para mobile*/
@@ -276,4 +277,6 @@ body {
     margin-left: 100%;
     border-radius: 100%;
   }
+=======
+>>>>>>> f54c9cd5a7ac8086c197f842f6c78d7cf6331335
 }

@@ -23,33 +23,38 @@
   border-radius: 40px;
 }
 
+body {
+  width: 100vw;
+}
+
 /* Inicio da estilização da header */
 .bemvindo {
   background-image: url("../assets/images/image\ 1.png");
   background-repeat: no-repeat;
   background-size: cover;
-  position: static;
 
   height: 711px;
   width: 100vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  z-index: 5;
+  overflow: hidden;
 }
 
 .header {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
 
   background-color: transparent;
   color: rgb(255, 255, 255);
-  width: 100vw;
-  padding: 2%;
-  padding-bottom: 5%;
+  width: 100%;
+  top: 0;
 }
 
 .logoHeader {
+  height: fit-content;
   display: flex;
 
   color: rgb(255, 255, 255);
@@ -61,6 +66,39 @@
 
 #imagemLogo {
   width: 100px;
+  height: 100px;
+}
+
+@keyframes navbarAnimationOpen {
+  to {
+    right: 0;
+    display: flex;
+  }
+
+  from {
+    right: -135px;
+  }
+}
+
+@keyframes navbarAnimationClose {
+  to {
+    right: -135px;
+  }
+
+  from {
+    right: 0;
+    display: none;
+  }
+}
+
+.itensHeaderOpen {
+  top: 80px;
+  animation: navbarAnimationOpen 0.7s forwards;
+}
+
+.itensHeaderClose {
+  top: 80px;
+  animation: navbarAnimationClose 0.7s forwards;
 }
 
 .itensHeader {
@@ -94,21 +132,17 @@ ul li a:hover {
   height: 90vh;
   width: 100vw;
 
-  padding-top: 2%;
-
   gap: 10%;
 }
 
 .containerHome .textoHome {
   font-size: 60px;
   font-weight: 2px;
-  padding-bottom: 1%;
-  padding-top: 10%;
   color: #fff;
 }
 
 .containerHome .subtituloHome {
-  align-self: center;
+  text-align: center;
 
   font-size: 20px;
   font-weight: 5px;
@@ -174,7 +208,6 @@ ul li a:hover {
   align-items: center;
   flex-direction: row;
 
-  z-index: 1000;
 }
 
 .blocos .bloco {
@@ -183,7 +216,7 @@ ul li a:hover {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  border-radius: .5rem;
+  border-radius: 0.5rem;
 }
 
 .blocos .bloco .descricao {
@@ -238,7 +271,7 @@ ul li a:hover {
 
 /*Breakpoint para mobile*/
 
-@media(min-width: 640px) {
+@media (min-width: 320px) {
   .containerHome {
     display: flex;
     justify-content: center;
@@ -247,18 +280,34 @@ ul li a:hover {
 
     height: max-content;
 
-    padding-top: 2%;
-
-    gap: 10%;
+    gap: 1rem;
   }
 
   .header {
-    display: none;
-    justify-content: space-around;
+    padding: 0 2rem;
+  }
 
-    width: auto;
-    padding: 2%;
-    padding-bottom: 5%;
+  .menu {
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .menu img {
+    width: 40px;
+  }
+
+  .itensHeader {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    background-color: #a9cad1;
+    position: absolute;
+    padding: 0.5rem;
+    border-radius: 0.3rem 0 0 0.3rem;
+    top: 80px;
+    right: -135px;
   }
 
   .bemvindo {
@@ -273,12 +322,17 @@ ul li a:hover {
   }
 
   .containerHome .textoHome {
-    font-size: 60px;
+    font-size: 40px;
     font-weight: 2px;
     padding-bottom: 1%;
-    padding-top: 10%;
     color: #fff;
     text-align: center;
+  }
+
+  .containerHome .subtituloHome {
+    font-size: 16px;
+    font-weight: 5px;
+
   }
 
   .blocos {
@@ -288,6 +342,13 @@ ul li a:hover {
     flex-direction: column;
     margin-top: -50px;
     gap: 20px;
+    z-index: 1000;
+  }
+
+  .blocos #blocoEsquerda,
+  .blocos #blocoCentro,
+  .blocos #blocoDireita {
+    width: fit-content;
   }
 
   /*Sobre nós*/
@@ -300,8 +361,11 @@ ul li a:hover {
 
   .boxTexto {
     padding: 0 10%;
-    text-align: center;
+  }
 
+  .boxTexto h1,
+  .boxTexto p {
+    text-align: center;
   }
 
   .boxMotivo {
@@ -312,12 +376,30 @@ ul li a:hover {
     width: 100% !important;
   }
 
+  .lifeLineTeam {
+    color: white;
+    padding: 50px 0;
+  }
+
   .detalhesTeam {
     flex-direction: column;
     align-items: center;
   }
 
+  .caixa-email input {
+    width: 70%;
+  }
+
+  .caixa-email {
+    flex-direction: column;
+  }
+
+  .meio-footer {
+    padding: 1rem 0;
+  }
+
   .blocos-logo {
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
@@ -325,21 +407,29 @@ ul li a:hover {
   }
 
   .blocos-info {
+    flex-direction: column;
     width: 100%;
     gap: 2rem;
-    height: 11vw;
   }
 
-  .bloco {
+  .fim-footer .bloco {
     font-size: 12px;
-    flex-direction: column;
     align-items: center;
     padding: 8px;
     text-align: center;
   }
 
+  .blocos-info .bloco {
+    gap: 20px;
+  }
+
+  .blocos-info .bloco img {
+    width: 40px;
+    height: 45px;
+  }
 }
 
+<<<<<<< HEAD
 @media(min-width: 768px) {
   .containerHome {
     display: flex;
@@ -443,8 +533,146 @@ ul li a:hover {
 
 @media(min-width: 1024px) {
   .containerHome .botoesHome {
+=======
+@media (min-width: 640px) {
+
+  .blocos #blocoEsquerda,
+  .blocos #blocoCentro,
+  .blocos #blocoDireita {
+    width: 400px;
+  }
+
+  .caixa-email input {
+    width: 390px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .header {
+    position: absolute;
+    justify-content: space-around;
+  }
+
+  .containerHome {
+>>>>>>> f54c9cd5a7ac8086c197f842f6c78d7cf6331335
     display: flex;
     justify-content: center;
-    gap: 30px;
+    align-items: center;
+    flex-direction: column;
+
+    height: max-content;
+
+    gap: 1rem;
+  }
+
+  .header {
+    padding: 0 2rem;
+  }
+
+  .menu {
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .menu img {
+    display: none;
+  }
+
+  .itensHeader {
+    display: flex;
+    flex-direction: row;
+    background-color: transparent;
+    position: static;
+    padding: 0.5rem;
+    border-radius: 0.3rem 0 0 0.3rem;
+  }
+
+  .containerHome .botoesHome {
+    flex-direction: row;
+  }
+
+  .blocos {
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin-top: -50px;
+    gap: 0;
+  }
+
+  .blocos #blocoEsquerda,
+  .blocos #blocoCentro,
+  .blocos #blocoDireita {
+    width: 400px;
+  }
+
+  .boxMotivo {
+    flex-direction: row;
+  }
+
+  .lifeLineTeam {
+    padding: 50px 200xp;
+  }
+
+  .detalhesTeam {
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .meio-footer {
+    padding: 3rem 0;
+  }
+
+  .blocos-info {
+    flex-direction: row;
+  }
+
+  .blocos-logo {
+    flex-direction: row;
+  }
+}
+
+@media (min-width: 1280px) {
+
+  .containerHome {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    height: max-content;
+
+    gap: 1rem;
+  }
+
+  .itensHeader {
+    flex-direction: row;
+    background-color: transparent;
+    padding: 0.5rem;
+    border-radius: 0.3rem 0 0 0.3rem;
+  }
+
+  .containerHome .botoesHome {
+    flex-direction: row;
+  }
+
+  .blocos {
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin-top: -50px;
+    gap: 0;
+  }
+
+  .boxMotivo {
+    flex-direction: row;
+  }
+
+  .detalhesTeam {
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
   }
 }

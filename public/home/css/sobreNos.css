@@ -11,6 +11,9 @@
   margin: 0 0 3rem 0;
 }
 
+#imageSobreNos {
+  width: 100%;
+}
 
 .boxTexto {
   display: flex;
@@ -21,7 +24,12 @@
 
 .porqueLifeLine {
   background-color: #efeeeec1;
-  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  padding: 50px 0;
 }
 
 .boxMotivo {
@@ -30,6 +38,10 @@
 }
 
 .boxes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
   padding: 0 10% 0 10%;
 }
 
