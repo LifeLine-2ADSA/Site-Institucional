@@ -7,6 +7,7 @@
     <title>LifeLine | Dashboard</title>
     <link rel="stylesheet" href="./home/css/dashboard.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://kit.fontawesome.com/f0ba5f04ed.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -21,17 +22,22 @@
                 </select>
                 <a class="botao-sidebar">HOME</a>
                 <a class="botao-sidebar">CADASTRAR MAQUINA</a>
+                <a class="botao-sidebar">BASE DE CONHECIMENTO</a>
 
                 <a class="botao-sidebar">LOGOUT</a>
             </div>
 
         </div>
         <div class="container-dash">
+            <div class="navbar">
+                <i class="fa-sharp fa-solid fa-circle-user fa-2xl" style="color: #000000;"></i>
+            </div>
             <div class="container-kpis">
-                <div class="boxKpi">KPI</div>
-                <div class="boxKpi">KPI</div>
-                <div class="boxKpi">KPI</div>
-                <div class="boxKpi">KPI</div>
+                <div class="boxKpi kpiIndicador">Em 17/04/2024 sua máquina excedeu o limite de CPU</div>
+                <div class="boxKpi kpiIndicador">Sua máquina teve 7 alertas durante a semana</div>
+                <div class="boxKpi kpiFrase">A temperatura da sua máquina está em XºC isso pode causar X (o desligamento ou
+                    pode causar danos ou gargalo ou oscilação da maquina) </div>
+                <div class="boxKpi kpiFrase">Atualmente a janele X é a mais prejudicial ao desempenho de sua maquina</div>
             </div>
             <div class="container-graficos">
                 <div class="box-graficos">
