@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LifeLine | Cadastro da máquina</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        <div class="search">
+          <h2>Configuração</h2>
+          <input type="text" />
+        </div>
+
+        <div></div>
+      </header>
+      <div class="containerContent">
+        <div class="navbar">
+          <img src="../home/assets/images/logoLifeLine.png" alt="" />
+        </div>
+        <div class="content">
+          <div class="campoFilters">
+            <div class="filters">
+              <select name="" id="">
+                <option value="">Active</option>
+              </select>
+              <label for="inputMaquina">IP da máquina</label>
+              <input
+                id="inputMaquina"
+                type="text"
+                placeholder="xxx.xxx.x.xxx"
+              />
+            </div>
+            <button onclick="modal()">Adicionar</button>
+          </div>
+          <div class="maquinas">
+            <div class="maquina">
+              <img src="../home/assets/images/computer.png" alt="" />
+              <div class="infoMaquina">
+                <h3 class="nomeMaquina">Dudu componentes</h3>
+                <p class="ipMaquina">xxx.xxx.x.xxx</p>
+              </div>
+
+              <div class="graphicsMaquina">
+                <canvas id="myChart1"></canvas>
+                <canvas id="myChart2"></canvas>
+                <canvas id="myChart3"></canvas>
+              </div>
+
+              <div class="status green"></div>
+            </div>
+
+            <div class="maquina">
+              <img src="../home/assets/images/computer.png" alt="" />
+              <div class="infoMaquina">
+                <h3 class="nomeMaquina">Dudu componentes</h3>
+                <p class="ipMaquina">xxx.xxx.x.xxx</p>
+              </div>
+
+              <div class="graphicsMaquina">
+                <canvas id="myChart4"></canvas>
+                <canvas id="myChart5"></canvas>
+                <canvas id="myChart6"></canvas>
+              </div>
+
+              <div class="status red"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modalContainer" id="modalContainer">
+      <div class="modal">
+        <h1>Cadastro da Máquina</h1>
+        <div class="contentModal" id="contentModal">
+          <label for="nomeMaquina">Nome da máquina</label>
+          <input id="nomeMaquina" type="text" placeholder="Dudu computarias" />
+        </div>
+        <div class="buttonsModal">
+          <button class="red buttonModal" onclick="modal()">Cancelar</button>
+          <button class="green buttonModal" onclick="handleSave()">
+            Adicionar
+          </button>
+        </div>
+      </div>
+    </div>
+    <script src="./js/dashboardMaquinas.js"></script>
+    <script src="./js/modal.js"></script>
+  </body>
+</html>
