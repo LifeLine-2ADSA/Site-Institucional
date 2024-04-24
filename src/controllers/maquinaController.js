@@ -20,16 +20,13 @@ function buscarMaquinasPorUsuario(req, res) {
 }
 
 function cadastrar(req, res) {
-  var descricao = req.body.descricao;
-  var idUsuario = req.body.idUsuario;
+  var nomeMaquina = req.body.nomeMaquina;
 
-  if (descricao == undefined) {
-    res.status(400).send("descricao está undefined!");
-  } else if (idUsuario == undefined) {
+  if (nomeMaquina == undefined) {
     res.status(400).send("idUsuario está undefined!");
   } else {
     maquinaModel
-      .cadastrar(descricao, idUsuario)
+      .cadastrar(nomeMaquina)
       .then((resultado) => {
         res.status(201).json(resultado);
       })
