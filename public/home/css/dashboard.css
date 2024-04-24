@@ -14,7 +14,7 @@
 }
 
 .side-bar{
-    background-image: linear-gradient(to top, #33919a 50%, #ebf0f0 80%);
+    background-color:#dfdfdbc4 ;
     width: 15%;
    /* height: 100%; */
     display: flex;
@@ -40,6 +40,7 @@
 .botao-sidebar{
     background-color: #33919a;
     padding: 10px;
+    width: 80%;
     text-align: center;
     border-radius: 5px;
     border: 1px solid white;
@@ -52,43 +53,74 @@
     background-color: #bfbfbfc1;
     width: 85%;
   
-    padding: 5%;
 }
+
+.navbar{
+    background-color:#e6e6e6c0;
+    height: 70px;
+    width: 100%;
+    margin-bottom: 15px;
+    justify-content: flex-end;
+    align-items: center;
+    display: flex;
+    padding: 2%;
+}
+
+
 
 .container-kpis{
     display: flex;
     justify-content: space-around;
+    width: 90%;
+    align-items: center;
+    margin-left: 5%;
 }
 
 .boxKpi{
     background-color: #33919a;
-    width: 250px;
     height: 120px;
-    padding: 5px;
+    padding: 10px;
     text-align: center;
     color: white;
     border: 1px solid white;
     border-radius: 5px;
+    text-align: center;
+   
+    align-content: center;
+}
+
+.kpiIndicador{
+    width: 200px;
+}
+
+.kpiFrase{
+    width: 350px;
 }
 
 .container-graficos{
-    padding-top: 5%;
+    padding: 5%;
 }
 .box-graficos{
     display: flex;
     justify-content: center;
-    gap: 15px;
+    gap: 55px;
 }
 
 .grafico{
     width: 450px;
+    background-color: white;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    border: 1px solid #33919a;
 }
 
 .grafico h2{
     color:#33919a;
     text-align: center;
+    
 }
 
-#myChart2{
-    width: 450px;
-}

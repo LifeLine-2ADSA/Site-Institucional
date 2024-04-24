@@ -6,13 +6,19 @@
     <title>LifeLine | Dashboard</title>
     <link rel="stylesheet" href="./home/css/dashboard.css" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<<<<<<< HEAD
   </head>
+=======
+    <script src="https://kit.fontawesome.com/f0ba5f04ed.js" crossorigin="anonymous"></script>
+</head>
+>>>>>>> 16cd450a88481236aa36ca94014b64feb6b1d6dd
 
   <body>
     <div class="body-dash">
       <div class="side-bar">
         <img id="img-logo" src="./home/assets/images/logoLifeLine.png" alt="" />
 
+<<<<<<< HEAD
         <div class="botoes-sidebar">
           <select class="botao-sidebar" name="maquinas" id="maquinas">
             <option value="">Maquina A</option>
@@ -20,9 +26,23 @@
           </select>
           <a class="botao-sidebar">HOME</a>
           <a class="botao-sidebar">CADASTRAR MAQUINA</a>
+=======
+            <div class="botoes-sidebar">
+                <select class="botao-sidebar" name="maquinas" id="maquinas">
+                    <option value="">Maquina A</option>
+                    <option value="">Maquina B</option>
+                </select>
+                <a class="botao-sidebar">HOME</a>
+                <a class="botao-sidebar">CADASTRAR MAQUINA</a>
+                <a class="botao-sidebar">BASE DE CONHECIMENTO</a>
+
+                <a class="botao-sidebar">LOGOUT</a>
+            </div>
+>>>>>>> 16cd450a88481236aa36ca94014b64feb6b1d6dd
 
           <a class="botao-sidebar">LOGOUT</a>
         </div>
+<<<<<<< HEAD
       </div>
       <div class="container-dash">
         <div class="container-kpis">
@@ -30,6 +50,46 @@
           <div class="boxKpi">KPI</div>
           <div class="boxKpi">KPI</div>
           <div class="boxKpi">KPI</div>
+=======
+        <div class="container-dash">
+            <div class="navbar">
+                <i class="fa-sharp fa-solid fa-circle-user fa-2xl" style="color: #000000;"></i>
+            </div>
+            <div class="container-kpis">
+                <div class="boxKpi kpiIndicador">Em 17/04/2024 sua máquina excedeu o limite de CPU</div>
+                <div class="boxKpi kpiIndicador">Sua máquina teve 7 alertas durante a semana</div>
+                <div class="boxKpi kpiFrase">A temperatura da sua máquina está em XºC isso pode causar X (o desligamento ou
+                    pode causar danos ou gargalo ou oscilação da maquina) </div>
+                <div class="boxKpi kpiFrase">Atualmente a janele X é a mais prejudicial ao desempenho de sua maquina</div>
+            </div>
+            <div class="container-graficos">
+                <div class="box-graficos">
+                    <div class="grafico">
+                        <h2>Consumo CPU</h2>
+                        <canvas id="myChart"></canvas>
+                    </div>
+
+                    <div class="grafico">
+                        <h2>Consumo RAM</h2>
+                        <canvas id="myChart3"></canvas>
+                    </div>
+
+                </div>
+                <br><br>
+                <div class="box-graficos">
+                    <div class="grafico">
+                        <h2>Consumo Disco</h2>
+                        <canvas id="myChart2"></canvas>
+                    </div>
+                    <div class="grafico">
+                        <h2>Janelas com maior consumo</h2>
+                        <canvas id="myChart4"></canvas>
+                    </div>
+                </div>
+
+
+            </div>
+>>>>>>> 16cd450a88481236aa36ca94014b64feb6b1d6dd
         </div>
         <div class="container-graficos">
           <div class="box-graficos">
