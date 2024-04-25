@@ -36,8 +36,6 @@
 }
 
 #fotoMembroTeam {
-  width: 250px;
-  height: 250px;
   border-radius: 100%;
   background-position: center;
   background-size: cover;
@@ -49,7 +47,6 @@
 }
 
 .descricaoAreaTeam {
-  width: 347px;
   text-align: center;
   display: flex;
   flex-direction: column;

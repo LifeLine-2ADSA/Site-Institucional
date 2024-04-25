@@ -207,7 +207,6 @@ ul li a:hover {
   justify-content: center;
   align-items: center;
   flex-direction: row;
-
 }
 
 .blocos .bloco {
@@ -315,6 +314,7 @@ ul li a:hover {
   }
 
   .containerHome .botoesHome {
+    width: fit-content;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -332,7 +332,6 @@ ul li a:hover {
   .containerHome .subtituloHome {
     font-size: 16px;
     font-weight: 5px;
-
   }
 
   .blocos {
@@ -386,6 +385,15 @@ ul li a:hover {
     align-items: center;
   }
 
+  #fotoMembroTeam {
+    width: 200px;
+    height: 200px;
+  }
+
+  .descricaoAreaTeam {
+    width: 100%;
+  }
+
   .caixa-email input {
     width: 70%;
   }
@@ -429,8 +437,7 @@ ul li a:hover {
   }
 }
 
-<<<<<<< HEAD
-@media(min-width: 768px) {
+@media (min-width: 768px) {
   .containerHome {
     display: flex;
     justify-content: center;
@@ -445,10 +452,10 @@ ul li a:hover {
   }
 
   .header {
-    display: none;
+    display: flex;
     justify-content: space-around;
 
-    width: auto;
+    width: 100%;
     padding: 2%;
     padding-bottom: 5%;
   }
@@ -493,7 +500,6 @@ ul li a:hover {
   .boxTexto {
     padding: 0 10%;
     text-align: center;
-
   }
 
   .boxMotivo {
@@ -509,17 +515,25 @@ ul li a:hover {
     align-items: center;
   }
 
+  .descricaoAreaTeam {
+    width: 347px;
+
+  }
+
   .blocos-logo {
     justify-content: center;
     align-items: center;
     width: 100%;
     gap: 2rem;
+
+    flex-direction: row;
   }
 
   .blocos-info {
     width: 100%;
     gap: 2rem;
     height: 11vw;
+    flex-direction: row;
   }
 
   .bloco {
@@ -531,9 +545,6 @@ ul li a:hover {
   }
 }
 
-@media(min-width: 1024px) {
-  .containerHome .botoesHome {
-=======
 @media (min-width: 640px) {
 
   .blocos #blocoEsquerda,
@@ -554,7 +565,6 @@ ul li a:hover {
   }
 
   .containerHome {
->>>>>>> f54c9cd5a7ac8086c197f842f6c78d7cf6331335
     display: flex;
     justify-content: center;
     align-items: center;
@@ -612,7 +622,7 @@ ul li a:hover {
   }
 
   .lifeLineTeam {
-    padding: 50px 200xp;
+    padding: 50px 200px;
   }
 
   .detalhesTeam {
@@ -625,17 +635,10 @@ ul li a:hover {
     padding: 3rem 0;
   }
 
-  .blocos-info {
-    flex-direction: row;
-  }
 
-  .blocos-logo {
-    flex-direction: row;
-  }
 }
 
 @media (min-width: 1280px) {
-
   .containerHome {
     display: flex;
     justify-content: center;
