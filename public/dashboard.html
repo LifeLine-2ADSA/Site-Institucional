@@ -1,57 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LifeLine | Dashboard</title>
-    <link rel="stylesheet" href="./home/css/dashboard.css" />
+    <link rel="stylesheet" href="./home/css/dashboard.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  </head>
     <script src="https://kit.fontawesome.com/f0ba5f04ed.js" crossorigin="anonymous"></script>
 </head>
 
-  <body>
+<body>
     <div class="body-dash">
-      <div class="side-bar">
-        <img id="img-logo" src="./home/assets/images/logoLifeLine.png" alt="" />
-
-        <div class="botoes-sidebar">
-          <select class="botao-sidebar" name="maquinas" id="maquinas">
-            <option value="">Maquina A</option>
-            <option value="">Maquina B</option>
-          </select>
-          <a class="botao-sidebar">HOME</a>
-          <a class="botao-sidebar">CADASTRAR MAQUINA</a>
+        <div class="side-bar">
+            <img id="img-logo" src="./home/assets/images/logoLifeLine.png" alt="">
             <div class="botoes-sidebar">
                 <select class="botao-sidebar" name="maquinas" id="maquinas">
                     <option value="">Maquina A</option>
                     <option value="">Maquina B</option>
                 </select>
                 <a class="botao-sidebar">HOME</a>
-                <a class="botao-sidebar">CADASTRAR MAQUINA</a>
+                <a class="botao-sidebar" href="cadastroMaquina/cadastroMaquina.html">CADASTRAR MAQUINA</a>
                 <a class="botao-sidebar">BASE DE CONHECIMENTO</a>
 
-                <a class="botao-sidebar">LOGOUT</a>
+       
             </div>
-          <a class="botao-sidebar">LOGOUT</a>
+
         </div>
-      </div>
-      <div class="container-dash">
-        <div class="container-kpis">
-          <div class="boxKpi">KPI</div>
-          <div class="boxKpi">KPI</div>
-          <div class="boxKpi">KPI</div>
-          <div class="boxKpi">KPI</div>
         <div class="container-dash">
             <div class="navbar">
+              <i class="fa-solid fa-right-from-bracket fa-2xl" style="color: #0d0d0d;"></i>
                 <i class="fa-sharp fa-solid fa-circle-user fa-2xl" style="color: #000000;"></i>
+
             </div>
             <div class="container-kpis">
-                <div class="boxKpi kpiIndicador">Em 17/04/2024 sua máquina excedeu o limite de CPU</div>
+                <div class="boxKpi kpiIndicador">Em 29/04/2024 sua máquina excedeu o limite de CPU</div>
                 <div class="boxKpi kpiIndicador">Sua máquina teve 7 alertas durante a semana</div>
-                <div class="boxKpi kpiFrase">A temperatura da sua máquina está em XºC isso pode causar X (o desligamento ou
-                    pode causar danos ou gargalo ou oscilação da maquina) </div>
-                <div class="boxKpi kpiFrase">Atualmente a janele X é a mais prejudicial ao desempenho de sua maquina</div>
+                <div class="boxKpi kpiFrase">A temperatura da sua máquina está em 27ºC isso pode causar o desligamento o da maquina </div>
+                <div class="boxKpi kpiFrase">Atualmente a janele 'Spotify' é a mais prejudicial ao desempenho de sua maquina</div>
             </div>
             <div class="container-graficos">
                 <div class="box-graficos">
@@ -59,12 +44,10 @@
                         <h2>Consumo CPU</h2>
                         <canvas id="myChart"></canvas>
                     </div>
-
                     <div class="grafico">
                         <h2>Consumo RAM</h2>
                         <canvas id="myChart3"></canvas>
                     </div>
-
                 </div>
                 <br><br>
                 <div class="box-graficos">
@@ -77,132 +60,92 @@
                         <canvas id="myChart4"></canvas>
                     </div>
                 </div>
-
-
             </div>
         </div>
-        <div class="container-graficos">
-          <div class="box-graficos">
-            <div class="grafico">
-              <h2>Consumo CPU</h2>
-              <canvas id="myChart"></canvas>
-            </div>
-
-            <div class="grafico">
-              <h2>Consumo RAM</h2>
-              <canvas id="myChart3"></canvas>
-            </div>
-          </div>
-          <br /><br />
-          <div class="box-graficos">
-            <div class="grafico">
-              <h2>Consumo Disco</h2>
-              <canvas id="myChart2"></canvas>
-            </div>
-            <div class="grafico">
-              <h2>Janelas com maior consumo</h2>
-              <canvas id="myChart4"></canvas>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
-  </body>
+</body>
 </html>
-
 <script>
-  const ctx = document.getElementById("myChart");
-  const ctx2 = document.getElementById("myChart2");
-  const ctx3 = document.getElementById("myChart3");
-  const ctx4 = document.getElementById("myChart4");
-
-  new Chart(ctx, {
-    type: "line",
-    data: {
-      labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-      datasets: [
-        {
-          label: "# of Votes",
-          data: [12, 19, 3, 5, 2, 3],
-          borderWidth: 1,
+    const ctx = document.getElementById('myChart');
+    const ctx2 = document.getElementById('myChart2');
+    const ctx3 = document.getElementById('myChart3');
+    const ctx4 = document.getElementById('myChart4');
+    new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            datasets: [{
+                label: '# of Votes',
+                data: [12, 19, 3, 5, 2, 3],
+                borderWidth: 1
+            }]
         },
-      ],
-    },
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true,
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            },
+            //     plugins: {
+            //     title: {
+            //         display: true,
+            //         text: 'Custom Chart Title'
+            //     }
+            // }
+        }
+    });
+    new Chart(ctx2, {
+        type: 'doughnut',
+        data: {
+            labels: ['Livre', 'Usados'],
+            datasets: [{
+                data: [12, 19],
+                borderWidth: 1
+            }]
         },
-      },
-      //     plugins: {
-      //     title: {
-      //         display: true,
-      //         text: 'Custom Chart Title'
-      //     }
-      // }
-    },
-  });
-
-  new Chart(ctx2, {
-    type: "doughnut",
-    data: {
-      labels: ["Livre", "Usados"],
-      datasets: [
-        {
-          data: [12, 19],
-          borderWidth: 1,
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+    new Chart(ctx3, {
+        type: 'line',
+        data: {
+            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            datasets: [{
+                label: '# of Votes',
+                data: [12, 19, 3, 5, 2, 3],
+                borderWidth: 1
+            }]
         },
-      ],
-    },
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true,
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+    new Chart(ctx4, {
+        type: 'bar',
+        data: {
+          labels: ['Google Chrome', 'Spotify', 'Microsoft Teams', 'Microsoft Excel'],
+            datasets: [{
+                label: '',
+                data: [12, 19, 3, 5],
+                borderWidth: 1
+            }]
         },
-      },
-    },
-  });
-
-  new Chart(ctx3, {
-    type: "line",
-    data: {
-      labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-      datasets: [
-        {
-          label: "# of Votes",
-          data: [12, 19, 3, 5, 2, 3],
-          borderWidth: 1,
-        },
-      ],
-    },
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true,
-        },
-      },
-    },
-  });
-
-  new Chart(ctx4, {
-    type: "bar",
-    data: {
-      labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-      datasets: [
-        {
-          label: "# of Votes",
-          data: [12, 19, 3, 5, 2, 3],
-          borderWidth: 1,
-        },
-      ],
-    },
-    options: {
-      indexAxis: "y",
-      scales: {
-        y: {
-          beginAtZero: true,
-        },
-      },
-    },
-  });
+        options: {
+            indexAxis: 'y',
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
 </script>

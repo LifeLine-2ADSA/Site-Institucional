@@ -27,7 +27,7 @@ function autenticar() {
             sessionStorage.MAQUINAS_USUARIO = JSON.stringify(json.maquinas);
 
             setTimeout(function () {
-              window.location = "home/perfil.html";
+              window.location = "././dashboard.html";
             }, 1000); // apenas para exibir o loading
           });
         } else {
