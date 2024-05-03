@@ -4,7 +4,7 @@
   align-items: center;
   margin: 50px;
 
-  & .linha {
+   .linha {
     width: 70vw;
     height: 1.6px;
     background-color: black;
@@ -17,8 +17,12 @@
   justify-content: center;
   text-align: center;
 
-  & .fique-dentro {
+  .fique-dentro {
     font-size: 28px;
+    margin-bottom: 10px !important;
+    h2 {
+      margin-bottom: 15px;
+    }
   }
 
   .caixa-email {
@@ -73,11 +77,6 @@
     height: fit-content;
   }
 
-  .imagem:hover {
-    transform: scale(1.15);
-    transition: 0.3s ease-out;
-  }
-
   .bloco {
     color: #ffffff;
     font-size: 14px;
@@ -100,7 +99,7 @@
     align-items: center;
     color: #ffffff;
 
-    & .titulo-footer {
+     .titulo-footer {
       font-size: 27px;
     }
   }
@@ -110,3 +109,53 @@
     text-align: end;
   }
 }
+.imagem {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  .container {
+    margin-right: 80px;
+  }
+}
+
+
+.heart-rate{
+	width: 80px;
+	height: 73px;
+	position: relative;
+	margin: 20px auto;
+}
+.fade-in{
+position: absolute;
+width: 100%;
+height: 100%;
+background-color: #6db5c5a4;
+top: 0;
+right: 0;
+animation: heartRateIn 3.5s linear infinite;
+}
+
+.fade-out{
+position: absolute;
+width: 120%;
+height: 100%;
+background-color: #6db5c5;
+top: 0;
+right: -120%;
+animation: heartRateOut 3.5s linear infinite;
+background: rgba(109, 181, 197, 1);
+background: linear-gradient(to right,rgba(109, 181, 197, 1)0%, rgba(109, 181, 197, 1)80%,rgba(109, 181, 197, 0)100%);
+}
+
+@keyframes heartRateIn{
+	0%{width: 100%;}
+	50%{width: 0;}
+	100%{width: 0;}
+}
+@keyframes heartRateOut{
+	0%{left: -120%;}
+	30%{left: -120%;}
+	100%{left: 0;}
+}
+
+
