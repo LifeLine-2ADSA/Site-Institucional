@@ -69,6 +69,12 @@ CREATE TABLE registro(
     PRIMARY KEY(idRegistro, fkMaquina)
 ) auto_increment=400;
 
+CREATE TABLE leads (
+	idLead INT PRIMARY KEY AUTO_INCREMENT,
+    dataLead DATE,
+    nomeLead VARCHAR(70),
+    emailLead VARCHAR(50)
+    )
 /*
 CREATE TABLE alerta(
 	idAlerta INT AUTO_INCREMENT,

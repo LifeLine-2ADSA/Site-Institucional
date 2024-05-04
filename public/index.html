@@ -217,10 +217,11 @@
       </div>
       <div class="inicio-footer">
         <div class="fique-dentro">
-          <h2>Fique por dentro!</h2>
+          <h2 class="titulo">Fique por dentro!</h2>
           <div class="caixa-email">
-            <input type="email" placeholder="exemplo@dominio.com" />
-            <button>Enviar</button>
+            <input type="text" placeholder="Nome" id="input_nome"/>
+            <input type="email" placeholder="exemplo@dominio.com" id="input_email"/>
+            <button onclick="buscarLead()">Enviar</button>
           </div>
         </div>
       </div>
@@ -231,7 +232,7 @@
               <img src="home/assets/images/location.png" />
             </div>
             <div class="texto">
-              <h2>Endereço</h2>
+              <h2 class="titulo">Endereço</h2>
               Rua Haddock Lobo, 595 São Paulo - SP
             </div>
           </div>
@@ -240,7 +241,7 @@
               <img src="home/assets/images/phone.png" />
             </div>
             <div class="texto">
-              <h2>Telefone</h2>
+              <h2 class="titulo">Telefone</h2>
               (11) 0000-0000
             </div>
           </div>
@@ -249,7 +250,7 @@
               <img src="home/assets/images/email.png" />
             </div>
             <div class="texto">
-              <h2>E-mail</h2>
+              <h2 class="titulo">E-mail</h2>
               lifeline@sptech.school
             </div>
           </div>
@@ -273,7 +274,7 @@
                  </div>
                 </div>
               <div class="texto">
-                <h3 class="titulo-footer">LifeLine</h3>
+                <h1 class="titulo">LifeLine</h1>
                 <br />
                 Uma linha direta entre você e o sucesso
               </div>
@@ -281,9 +282,9 @@
             </div>
 
           <div class="bloco-redes">
-            <h3 class="titulo-redes">Nos siga!</h3>
+            <h3 class="titulo">Nos siga!</h3>
             <div class="imagens">
-              <img src="home/assets/images/whatsapp.png" />
+              <img src="home/assets/images/whatsapp.png"/>
               <img src="home/assets/images/facebook.png" />
               <img src="home/assets/images/instagram.png" />
             </div>
@@ -297,5 +298,6 @@
     <!-- Import JS carrosel -->
     <script src="home/js/carrosel.js"></script>
     <script src="home/js/navbar.js"></script>
+    <script src="home/js/cadastroLead.js"></script>
   </body>
 </html>
