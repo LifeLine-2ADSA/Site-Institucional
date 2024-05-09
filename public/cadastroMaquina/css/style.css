@@ -68,6 +68,35 @@ header {
   padding: 3rem 2rem;
 }
 
+.kpis {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.kpi {
+  width: 100%;
+  height: 70px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+  border: 2px solid #d4d4d8;
+  border-radius: 0.3rem;
+  overflow: hidden;
+}
+
+.statusKpi {
+  width: 100%;
+  height: 4px;
+  top: 0;
+  position: absolute;
+}
+
 .campoFilters {
   width: 100%;
   display: flex;
@@ -128,7 +157,7 @@ header {
   gap: 20px;
 }
 
-.kpiMaquina {
+.kpisMaquina {
   height: 100%;
   width: 100%;
   justify-content: space-between;
@@ -138,7 +167,7 @@ header {
   padding: 0 5rem;
 }
 
-.kpi {
+.kpiMaquina {
   text-align: center;
 }
 
@@ -156,6 +185,10 @@ header {
 
 .red {
   background-color: #ef4444;
+}
+
+.yellow {
+  background-color: #facc15;
 }
 
 .modalContainer {
