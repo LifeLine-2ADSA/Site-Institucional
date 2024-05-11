@@ -85,10 +85,6 @@
 
 /* TV */
 @media (min-width: 2400px) {
-    .navbar .navbar__logo {
-        width: var(--size-10xl);
-        height: var(--size-10xl);
-    }
     .container {
         max-width: 2400px;
     }

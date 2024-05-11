@@ -13,14 +13,14 @@
 
 .mask {
     width: 100%;
-    height: var(--size-6xl);
+    height: var(--size-5xl);
     background-color: #6DB5C5;
     box-shadow: 0 0.45rem 0.7rem 0 rgba(0, 0, 0, 0.3);
 }
 
 .navbar {
     display: flex;
-    height: var(--size-6xl);
+    height: var(--size-5xl);
     justify-content: space-between;
     align-items: center;
     padding: .725rem;
@@ -32,8 +32,8 @@
   background-image: var(--img-logo);
   background-size: 100%;
   background-repeat: no-repeat;
-  width: 3.75rem;
-  height: 3.75rem;
+  width: var(--size-5xl);
+  height: var(--size-5xl);
   display: none;
   border: 1px solid red;
 }
@@ -81,41 +81,32 @@
 
 .navbar .navbar__menu {
     .navbar__icon {
-        height: var(--size-3xl);
-        width: var(--size-3xl);
+        height: var(--size-2xl);
+        width: var(--size-2xl);
         border: 0.5px solid orange;
     }
-    .navbar__icon:first-child {
+    .navbar__icon:nth-child(n) {
         background-color: inherit;
-        background-image: var(--img-icon__search);
-        background-size: var(--size-3xl);
+        background-size: var(--size-2xl);
         background-repeat: no-repeat;
     }
+    .navbar__icon:first-child {
+        background-image: var(--img-icon__search);
+    }
     .navbar__icon:nth-child(2) {
-        background-color: inherit;
-        background-image: var(--img-icon__add);
-        background-size: var(--size-3xl);
-        background-repeat: no-repeat;   
+        background-image: var(--img-icon__add);  
     }
     .navbar__icon:nth-child(3) {
-        background-color: inherit;
-        background-image: var(--img-icon__chat);
-        background-size: var(--size-3xl);
-        background-repeat: no-repeat;   
+        background-image: var(--img-icon__chat);   
         display: none;
     }
     .navbar__icon:nth-child(4) {
-        background-color: inherit;
         background-image: var(--img-icon__slack);
-        background-size: var(--size-3xl);
         background-repeat: no-repeat;   
         display: none;  
     }
     .navbar__icon:nth-child(5) {
-        background-color: inherit;
-        background-image: var(--img-icon__user);
-        background-size: var(--size-3xl);
-        background-repeat: no-repeat;   
+        background-image: var(--img-icon__user);  
         display: none;  
     }
 }
@@ -140,8 +131,24 @@
 
 /* md */
 @media (min-width: 768px) {
+    .navbar {
+        height: var(--size-6xl);
+    }
+    .mask {
+        height: var(--size-6xl);
+    }
+    .navbar .navbar__logo {
+        width: var(--size-6xl);
+        height: var(--size-6xl);
+    }
     .navbar .navbar__menu{
-        
+    .navbar__icon {
+        height: var(--size-3xl);
+        width: var(--size-3xl);
+    }
+    .navbar__icon:nth-child(n) {
+        background-size: var(--size-3xl)
+    }
     .navbar__icon:first-child {  
             display: none;
         }
@@ -169,24 +176,59 @@
 
 /* 2xl */
 @media (min-width: 1536px) {
+    .navbar {
+        height: var(--size-7xl);
+    }
+    .mask {
+        height: var(--size-7xl);
+    }
     .navbar .navbar__logo {
-        width: var(--size-8xl);
-        height: var(--size-8xl);
+        width: var(--size-7xl);
+        height: var(--size-7xl);
+    }
+    .navbar .navbar__menu{
+        .navbar__icon {
+            height: var(--size-5xl);
+            width: var(--size-5xl);
+        }
+        .navbar .navbar__logo {
+            width: var(--size-5xl);
+            height: var(--size-5xl);
+        }
+        .navbar__icon:nth-child(n) {
+            background-size: var(--size-5xl)
+        }
     }
 }
 
 /* 3xl */
 @media (min-width: 1850px) {
-    .navbar .navbar__logo {
-        width: var(--size-9xl);
-        height: var(--size-9xl);
+    .navbar {
+        height: var(--size-8xl);
     }
+    .mask {
+        height: var(--size-8xl);
+    }.navbar .navbar__logo {
+        width: var(--size-8xl);
+        height: var(--size-8xl);
+    }
+    .navbar .navbar__menu{
+        .navbar__icon {
+            height: var(--size-6xl);
+            width: var(--size-6xl);
+        }
+        .navbar .navbar__logo {
+            width: var(--size-6xl);
+            height: var(--size-6xl);
+        }
+        .navbar__icon:nth-child(n) {
+            background-size: var(--size-6xl)
+        }
+    }
+    
 }
 
 /* TV */
 @media (min-width: 2400px) {
-    .navbar .navbar__logo {
-        width: var(--size-10xl);
-        height: var(--size-10xl);
-    }
+
 }
