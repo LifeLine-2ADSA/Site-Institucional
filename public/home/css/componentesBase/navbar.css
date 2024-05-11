@@ -62,6 +62,7 @@
     height: var(--size-4xs);
     width: 0;
     bottom: -7px;
+    border-radius: 100px;
     left: 0;
     transition: .3s ease-in-out;
 }
