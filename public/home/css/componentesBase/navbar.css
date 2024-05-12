@@ -49,6 +49,7 @@
 
 .navbar .navbar__icon {
     position: relative;
+    cursor: pointer;
 }
 
 .navbar .navbar__icon::after{
@@ -141,6 +142,7 @@
         height: var(--size-6xl);
     }
     .navbar .navbar__menu{
+    padding-left: 0;
     .navbar__icon {
         height: var(--size-3xl);
         width: var(--size-3xl);
@@ -167,6 +169,10 @@
 /* lg */
 @media (min-width: 1024px) {
     .navbar .navbar__menu{
+        .navbar__icon {
+            height: var(--size-4xl);
+            width: var(--size-4xl);
+        }
         .navbar__icon:nth-child(4) {
             display: block;
             width: var(--size-4xl);
@@ -189,22 +195,21 @@
         height: var(--size-7xl);
     }
     .navbar .navbar__logo {
-        width: var(--size-7xl);
-        height: var(--size-7xl);
+        width: var(--size-4-5xl);
+        height: var(--size-4-5xl);
     }
     .navbar .navbar__menu{
-        .navbar__icon {
-            height: var(--size-5xl);
-            width: var(--size-5xl);
-        }
-        .navbar .navbar__logo {
-            width: var(--size-5xl);
-            height: var(--size-5xl);
-        }
-        .navbar__icon:nth-child(n) {
-            background-size: var(--size-5xl)
-        }
+        gap: 3em;
+    .navbar__icon {
+        height: var(--size-4-5xl);
+        width: var(--size-4-5xl);
+        padding: 1.25rem;
     }
+    .navbar__icon:nth-child(n) {
+        background-size: var(--size-4-5xl);
+
+    }
+}
 }
 
 /* 3xl */
@@ -220,15 +225,16 @@
     }
     .navbar .navbar__menu{
         .navbar__icon {
-            height: var(--size-6xl);
-            width: var(--size-6xl);
+            height: var(--size-5xl);
+            width: var(--size-5xl);
+            padding: 1.55rem;
         }
         .navbar .navbar__logo {
-            width: var(--size-6xl);
-            height: var(--size-6xl);
+            width: var(--size-5xl);
+            height: var(--size-5xl);
         }
         .navbar__icon:nth-child(n) {
-            background-size: var(--size-6xl)
+            background-size: var(--size-5xl)
         }
     }
     

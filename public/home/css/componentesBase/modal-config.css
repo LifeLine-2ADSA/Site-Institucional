@@ -29,6 +29,7 @@
     background-image: var(--img-icon__close);
     background-size: 2rem;
     margin: 0.5rem;
+    cursor: pointer;
 }
 
 .modal-config  {
@@ -38,6 +39,7 @@
     height: 3rem;
     background-repeat: no-repeat;
     background-size: 2rem;
+    cursor: pointer;
     }
     .modal-config__options:nth-child(4) {
         background-image: var(--img-icon__theme);
@@ -62,7 +64,6 @@
     background-color: inherit;
     width: 80%;
     justify-content: space-between;
-    margin-bottom: 2rem;
     h3, h5 {
         font-family: sans-serif;
         background-color: inherit;
@@ -104,13 +105,12 @@
 /* md */
 @media (min-width: 768px) {
     .modal-config {
-        position: sticky;
+        position: absolute;
         border-radius: 20px;
         max-width: 768px;
-        margin-top: -110px;
-        margin-left: auto;
-        margin-right: auto;
-        top: 60px;
+        max-height: 485px;
+        inset: 0;
+        margin: auto;
         width: 80%;
         height: 80vh;
         box-shadow: 0 0px 100px 10px rgba(0, 0, 0, 0.5);
@@ -126,7 +126,8 @@
 /* xl */
 @media (min-width: 1280px) {
     .modal-config {
-        max-width: 1280px;
+        max-width: 975px;
+        max-height: 768px;
     } 
 }
 

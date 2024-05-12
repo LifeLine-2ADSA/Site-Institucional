@@ -64,8 +64,10 @@ if (fontSize) {
 const handleConfigModalState = () => {
   if (modal.style.display == "none") {
     modal.style.display = "flex";
+    document.body.style.overflowY = "hidden";
   } else {
     modal.style.display = "none";
+    document.body.style.overflowY = "visible";
   }
 };
 
