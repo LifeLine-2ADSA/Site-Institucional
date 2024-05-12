@@ -7,9 +7,10 @@ const themeToggleButton = document.querySelector(".theme-toggle");
 const exitButton = document.querySelector(".exit");
 const fontSizes = document.querySelectorAll(".sizes__pick-size span");
 
-console.log(fontSizes);
 // state
+
 const view = sessionStorage.getItem("theme");
+const fontSize = sessionStorage.getItem("fontSize");
 
 // onload
 if (view) {
@@ -39,6 +40,24 @@ if (view) {
     "--img-icon__close",
     'url("../../assets/images/close-lightmode.svg")'
   );
+}
+
+const removeActiveClass = () => {
+  fontSizes.forEach(function (size) {
+    size.classList.remove("active");
+  });
+};
+
+if (fontSize) {
+  document.querySelector("html").style.fontSize = fontSize;
+  removeActiveClass();
+  if (fontSize == "0.85rem") {
+    document.querySelector(".pick-size__small").classList.toggle("active");
+  } else if (fontSize == "1rem") {
+    document.querySelector(".pick-size__medium").classList.toggle("active");
+  } else {
+    document.querySelector(".pick-size__large").classList.toggle("active");
+  }
 }
 
 // handlers
@@ -95,12 +114,6 @@ const handleThemeToggle = () => {
   }
 };
 
-const removeSizeSelector = () => {
-  fontSizes.forEach(function (size) {
-    size.classList.remove("active");
-  });
-};
-
 // events
 configButtons.forEach(function (button) {
   button.addEventListener("click", handleConfigModalState);
@@ -114,10 +127,10 @@ exitButton.addEventListener("click", handleUserExit);
 
 fontSizes.forEach(function (size) {
   size.addEventListener("click", () => {
-    removeSizeSelector();
     let fontSizes;
+    removeActiveClass();
     size.classList.toggle("active");
-    console.log("ENTREI NO FONTSIZEHANDLER ===>" + size);
+    console.log("ENTREI NO FONT SIZE HANDLER ===>" + size);
     if (size.classList.contains("pick-size__small")) {
       fontSizes = "0.85rem";
     } else if (size.classList.contains("pick-size__medium")) {
@@ -125,6 +138,7 @@ fontSizes.forEach(function (size) {
     } else {
       fontSizes = "1.4rem";
     }
+    sessionStorage.setItem("fontSize", fontSizes);
     document.querySelector("html").style.fontSize = fontSizes;
   });
 });

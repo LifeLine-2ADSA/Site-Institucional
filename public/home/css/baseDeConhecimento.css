@@ -55,6 +55,7 @@
 
 html {
     scroll-behavior: smooth;
+    transition: font-size .375s ease-out;
 }
 body {
     background-color: var(--clr-background);
