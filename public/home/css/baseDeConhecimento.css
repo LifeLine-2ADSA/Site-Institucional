@@ -3,12 +3,14 @@
  /* background rgba(217, 217, 217, 1) */
  --clr-primary: #6DB5C5;
  /* primary  rgba(109, 181, 197, 1) */
+ --clr-primary__dark: #5994a1;
+ /* primary dark rgba(89, 148, 161, 1) */
  --clr-secondary: #FFFFFF;
  /* secondary rgba(255, 255, 255, 1) */
  --clr-font-primary: #000000;
  /* font primary rgba(0, 0, 0, 1) */
  --clr-font-secondary: #FFFFFF;
- /* secondary rgba(255, 255, 255, 1) */
+ /* font secondary rgba(255, 255, 255, 1) */
  --clr-highlight: #9D00F8;
  /* highlight rgba(54, 197, 240, 1) */
 --clr-neutral__white: #FFFFFF;
@@ -34,7 +36,15 @@
  --size-9xl: 8rem;
  --size-10xl: 10rem;
 }
-
+.body__darkmode {
+    --clr-background: #082F49;
+    --clr-primary: #0C4A6E;
+    --clr-primary__dark: #09354e;
+    --clr-secondary: #FFFFFF;
+    --clr-font-primary: #FFFFFF;
+    --clr-font-secondary: #000000;
+    --clr-highlight: #36C5F0;
+}
 
 * {
     margin: 0;
@@ -46,7 +56,10 @@
 html {
     scroll-behavior: smooth;
 }
-
+body {
+    background-color: var(--clr-background);
+    transition: background-color .375s ease-out;
+}
 a {
     color: var(--clr-highlight);
 }

@@ -25,6 +25,7 @@
 
 body {
   width: 100vw;
+  overflow-x: hidden;
 }
 
 /* Inicio da estilização da header */

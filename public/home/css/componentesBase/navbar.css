@@ -7,15 +7,12 @@
     --img-icon__slack: url('../../assets/images/Slack.svg');
 }
 
-.navbar__darkmode {
-    --img-logo: url('../../assets/images/carlos.png');
-}
-
 .mask {
     width: 100%;
     height: var(--size-5xl);
-    background-color: #6DB5C5;
+    background-color: var(--clr-primary);
     box-shadow: 0 0.45rem 0.7rem 0 rgba(0, 0, 0, 0.3);
+    transition: background-color 0.375s ease-out;
 }
 
 .navbar {
@@ -24,7 +21,8 @@
     justify-content: space-between;
     align-items: center;
     padding: .725rem;
-    background-color: #6DB5C5;
+    background-color: var(--clr-primary);
+    transition: background-color 0.375s ease-out;
 }
 
 .navbar .navbar__logo {
@@ -35,7 +33,6 @@
   width: var(--size-5xl);
   height: var(--size-5xl);
   display: none;
-  border: 1px solid red;
 }
 
 .navbar .navbar__search-bar {
@@ -44,7 +41,6 @@
     align-items: center;
     border-radius: 10px;
     min-width: 120px;
-    border: 1px solid red;
     input {
         border-radius: 10px;
         min-width: 120px;
@@ -75,7 +71,6 @@
     display: flex;
     align-items: center;
     list-style: none;
-    border: 1px solid red;
     padding-left: 0.5rem;
     gap: 2em;
 }
@@ -84,7 +79,6 @@
     .navbar__icon {
         height: var(--size-2xl);
         width: var(--size-2xl);
-        border: 0.5px solid orange;
     }
     .navbar__icon:nth-child(n) {
         background-color: inherit;
@@ -108,6 +102,10 @@
     }
     .navbar__icon:nth-child(5) {
         background-image: var(--img-icon__user);  
+        display: none;  
+    }
+    .navbar__icon:nth-child(6) {
+        background-image: var(--img-icon__config);  
         display: none;  
     }
 }
@@ -155,6 +153,8 @@
         }
     .navbar__icon:nth-child(3) {  
         display: block;
+        margin-top: 3.5px;
+
     }
     .navbar__icon:nth-child(5) {
         display: block;
@@ -169,6 +169,11 @@
     .navbar .navbar__menu{
         .navbar__icon:nth-child(4) {
             display: block;
+            width: var(--size-4xl);
+        }
+        .navbar__icon:nth-child(6) {
+            display: block;
+            width: var(--size-4xl);
         }}
 }
 
