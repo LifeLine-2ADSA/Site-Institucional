@@ -93,6 +93,9 @@
     margin: 0 0.255rem;
     cursor: pointer;
 }
+.sizes__pick-size span:nth-child(3) {
+    display: none;
+}
 .sizes__pick-size span.active {
     background-color: var(--clr-primary__dark);
 }
@@ -117,6 +120,9 @@
     }   
     .modal-config h2 {
         font-size: 26px;
+    }
+    .sizes__pick-size span:nth-child(3) {
+        display: block;
     }
 }
 

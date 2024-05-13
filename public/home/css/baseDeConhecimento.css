@@ -35,6 +35,9 @@
  --size-8xl: 6rem;
  --size-9xl: 8rem;
  --size-10xl: 10rem;
+ --size-xxl: 12rem;
+ --size-2xxl: 14rem;
+ --size-3xxl: 15.225rem;
 }
 .body__darkmode {
     --clr-background: #082F49;

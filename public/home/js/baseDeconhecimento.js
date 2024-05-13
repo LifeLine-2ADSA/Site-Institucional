@@ -6,7 +6,7 @@ const root = document.querySelector(":root");
 const themeToggleButton = document.querySelector(".theme-toggle");
 const exitButton = document.querySelector(".exit");
 const fontSizes = document.querySelectorAll(".sizes__pick-size span");
-
+const cards = document.querySelectorAll(".card");
 // state
 
 const view = sessionStorage.getItem("theme");
