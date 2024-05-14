@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat</title>
+  <link rel="stylesheet" href="./css/chat.css">
+</head>
+<body>
+  <div class="chat">
+    <header>
+      <div class="IA">
+        <img class="photoIA" src="./assets/chatbot.png" alt="">
+        <div class="aboutIA">
+          <p>Suporte(AI)</p>
+          <div class="statsAI"></div>
+        </div>
+      </div>
+
+    </header>
+
+    <div id="messages" class="messages">
+    </div>
+
+    <form id="form">
+      <div class="inputContainer">
+        <input type="text" id="inputMessage" placeholder="Digite sua mensagem">
+
+        <button type="submit">
+
+          <img class="sendImage" src="./assets/send-message.png" alt="">
+        </button>
+
+      </div>
+    </form>
+  </div>
+
+  <script src="js/chat.js"></script>
+  
+</body>
+</html>
