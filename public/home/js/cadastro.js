@@ -77,6 +77,7 @@ function listarEmpresas() {
           listaEmpresas.innerHTML += `<option value='${empresa.idEmpresa}'>${empresa.cnpj}</option>`;
         });
       });
+      console.log(resposta)
     })
     .catch(function (resposta) {
       console.log(`#ERRO: ${resposta}`);
