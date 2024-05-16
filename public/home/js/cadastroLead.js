@@ -5,6 +5,7 @@ function buscarLead() {
     method: "GET",
   })
     .then(function (resposta) {
+      console.log("RESPOSTAAAA ===>" + JSON.stringify(resposta));
       if (resposta.status == 200) {
         alert("Este email já está cadastrado");
       } else {

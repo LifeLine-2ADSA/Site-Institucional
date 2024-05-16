@@ -6,7 +6,7 @@ const root = document.querySelector(":root");
 const themeToggleButton = document.querySelector(".theme-toggle");
 const exitButton = document.querySelector(".exit");
 const fontSizes = document.querySelectorAll(".sizes__pick-size span");
-const cards = document.querySelectorAll(".card");
+const cards = document.querySelector(".cards");
 // state
 
 const view = sessionStorage.getItem("theme");
@@ -144,3 +144,34 @@ fontSizes.forEach(function (size) {
     document.querySelector("html").style.fontSize = fontSizes;
   });
 });
+
+
+function getPosts() {
+  fetch('/post/listPosts', {
+  method: 'GET',
+  "Content-Type": "application/json",
+})
+.then(res => {
+  res.json().then(json => {
+    console.log(json)
+    let cardsJson = json
+    cardsJson.forEach(card => {
+      cards.innerHTML += `
+      <div class="card" id=${card.idPostagem}>
+                <div class="card__content">
+                    <h3>${card.titulo}</h3>
+                    <div class="content__tag">${card.tag}</div>
+                    <div class="content__description">
+                    ${card.conteudo}
+                    </div>
+                </div>
+                <div class="card__footer">
+                    <p>${card.nome}</p> <p>Empresa</p> <p>data/hora</p>
+                </div>
+            </div>`
+    })
+  })
+})
+}
+
+getPosts()
