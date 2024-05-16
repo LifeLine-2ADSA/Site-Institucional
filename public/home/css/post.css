@@ -1,0 +1,95 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;500&display=swap");
+
+* {
+    font-family: "Inter", sans-serif;
+    scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: gray;
+}
+
+.container-principal {
+    width: 80%;
+    margin-left: 10%;
+    height: 90%;
+    background-color: white;
+    padding: 5%;
+}
+
+#input_titulo{
+    border: none;
+    background-color:rgba(164, 163, 163, 0.427) ;
+    border-bottom: 3px solid #6DB5C5;
+    padding: 10px;
+    width: 40%;
+}
+
+.container-tags {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.linha-horizontal {
+    width: 70vw;
+    height: 1.5px;
+    background-color: rgba(132, 132, 132, 0.867);
+}
+
+.linha-vertical {
+    height: 25vh;
+    width: 1px;
+    background-color: rgba(132, 132, 132, 0.867);
+    align-self: center;
+}
+
+.box-left{
+    width: 40%;
+}
+.box-right{
+    width: 40%;
+}
+
+
+textarea{
+    padding: 7px;
+    border: none;
+    background-color: transparent;
+}
+.box-texto{
+    background-color:rgba(164, 163, 163, 0.427) ;
+    padding: 8px;
+    border-radius: 5px;
+    border-bottom: 3px solid #6DB5C5;
+}
+.botoes-clear{
+    background-color: #6DB5C5;
+    color: white;
+    border: none;
+    padding: 5px;
+    font-size: medium;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.container-botoes{
+    display: flex;
+    gap:15px;
+    justify-content: flex-end;
+}
+
+.botoes-bottom{
+    background-color: #6DB5C5;
+    color: white;
+    border: none;
+    padding: 5px;
+    font-size: large;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
