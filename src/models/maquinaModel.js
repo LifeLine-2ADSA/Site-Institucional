@@ -9,12 +9,20 @@ function buscarMaquinasPorUsuario(idUsuario) {
 
 function cadastrar(nomeMaquina) {
   var instrucaoSql = `INSERT INTO maquina (nomeMaquina) VALUES ('${nomeMaquina}')`;
-4
+
+  console.log("Executando a instrução SQL: \n" + instrucaoSql);
+  return database.executar(instrucaoSql);
+}
+
+function listarMaquinas(idUsuario) {
+  var instrucaoSql = `SELECT * FROM maquina JOIN registro ON maquina.idMaquina = registro.fkMaquina WHERE maquina.fkUsuario = ${idUsuario}`
+
   console.log("Executando a instrução SQL: \n" + instrucaoSql);
   return database.executar(instrucaoSql);
 }
 
 module.exports = {
+  listarMaquinas,
   buscarMaquinasPorUsuario,
   cadastrar,
 };

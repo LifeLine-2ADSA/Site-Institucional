@@ -41,7 +41,27 @@ function cadastrar(req, res) {
   }
 }
 
+function listarMaquinas(req, res) {
+  var idUsuario = req.params.idUsuario;
+
+  if (idUsuario == undefined) {
+    res.status(400).send("idUsuario está undefined!");
+  } else {
+    maquinaModel.listarMaquinas(idUsuario)
+    .then(
+      (resultado) => {
+        if (resultado.length > 0) {
+          res.status(200).json(resultado);
+        } else {
+          res.status(204).json([]);
+        }
+      }
+    )
+  }
+}
+
 module.exports = {
+  listarMaquinas,
   buscarMaquinasPorUsuario,
   cadastrar,
 };

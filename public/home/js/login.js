@@ -61,8 +61,8 @@ function autenticar() {
             sessionStorage.CARGO_USUARIO = json.cargo;
             sessionStorage.MAQUINAS_USUARIO = JSON.stringify(json.maquinas);
             setTimeout(function () {
-              window.location = "././dashboard.html";
-            }, 20000); // apenas para exibir o loading
+              window.location = "../cadastroMaquina/cadastroMaquina.html";
+            }, 5000); // apenas para exibir o loading
           });
         } else {
           alert("Houve um erro ao tentar realizar o login!");

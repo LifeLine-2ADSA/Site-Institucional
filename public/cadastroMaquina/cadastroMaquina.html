@@ -8,7 +8,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
 
-  <body>
+  <body onload="fetchInfoMaquinas()">
     <div class="container">
       <header>
         <div class="search">
@@ -26,7 +26,7 @@
           <div class="kpis">
             <div class="kpi">
               <p>Quantidade de máquinas</p>
-              <h2>30</h2>
+              <h2 id="qtd_maquinas"></h2>
             </div>
 
             <div class="kpi">
@@ -54,62 +54,14 @@
                 <option value="">Ativo</option>
                 <option value="">Desativado</option>
               </select>
-              <label for="inputMaquina">IP da máquina</label>
-              <input id="inputMaquina" type="text" placeholder="hostname" />
+              <label for="inputMaquina">Nome da máquina:</label>
+              <input id="inputMaquina" type="text" placeholder="Notebook Empresa" />
             </div>
             <button onclick="modal()">Adicionar</button>
           </div>
-          <div class="maquinas">
-            <div class="maquina">
-              <img src="../home/assets/images/computer.png" alt="" />
-              <div class="infoMaquina">
-                <h3 class="nomeMaquina">Dudu componentes</h3>
-                <p class="ipMaquina">hostname</p>
-              </div>
 
-              <div class="kpisMaquina">
-                <div class="kpiMaquina">
-                  <h2>0%</h2>
-                  <p class="">CPU</p>
-                </div>
-                <div class="kpiMaquina">
-                  <h2>0%</h2>
-                  <p class="">CPU</p>
-                </div>
-                <div class="kpiMaquina">
-                  <h2>0%</h2>
-                  <p class="">CPU</p>
-                </div>
-              </div>
-
-              <div class="status green"></div>
-            </div>
-
-            <div class="maquina">
-              <img src="../home/assets/images/computer.png" alt="" />
-              <div class="infoMaquina">
-                <h3 class="nomeMaquina">Dudu componentes</h3>
-                <p class="ipMaquina">hostname</p>
-              </div>
-
-              <div class="kpisMaquina">
-                <div class="kpiMaquina">
-                  <h2>0%</h2>
-                  <p class="">CPU</p>
-                </div>
-                <div class="kpiMaquina">
-                  <h2>0%</h2>
-                  <p class="">CPU</p>
-                </div>
-                <div class="kpiMaquina">
-                  <h2>0%</h2>
-                  <p class="">CPU</p>
-                </div>
-              </div>
-
-              <div class="status red"></div>
-            </div>
-          </div>
+          <div id="maquinas_div" class="maquinas"> <!-- DIV PAI  -->
+           </div> <!-- DIV PAI -->
         </div>
       </div>
     </div>
@@ -118,7 +70,7 @@
         <h1>Cadastro da Máquina</h1>
         <div class="contentModal" id="contentModal">
           <label for="nomeMaquina">Nome da máquina</label>
-          <input id="nomeMaquina" type="text" placeholder="Dudu computarias" />
+          <input id="nomeMaquina" type="text" placeholder="exemplo: Notebook Empresa" />
         </div>
         <div class="buttonsModal">
           <button class="red buttonModal" onclick="modal()">Cancelar</button>
@@ -128,7 +80,7 @@
         </div>
       </div>
     </div>
-    <script src="./js/dashboardMaquinas.js"></script>
-    <script src="./js/modal.js"></script>
+    <script src="js/modal.js"></script>
+    <script src="js/infoMaquinas.js"></script>
   </body>
 </html>
