@@ -36,9 +36,8 @@
             </div>
             <div class="container-kpis">
                 <div id="primeira_kpi" class="boxKpi kpiIndicador"></div>
-                <div id="segunda_kpi" class="boxKpi kpiIndicador">Sua máquina teve 7 alertas durante a semana</div>
-                <div id="terceira_kpi" class="boxKpi kpiFrase">A temperatura da sua máquina está em 27ºC isso pode
-                    causar o desligamento o da maquina </div>
+                <div id="segunda_kpi" class="boxKpi kpiIndicador"></div>
+                <div id="terceira_kpi" class="boxKpi kpiFrase"></div>
                 <div id="quarta_kpi" class="boxKpi kpiFrase"></div>
             </div>
             <div class="container-graficos">
@@ -70,13 +69,13 @@
 
 </html>
 <script>
-    const idMaquina = sessionStorage.ID_MAQUINA_DASH;
+    let idMaquina = sessionStorage.ID_MAQUINA_DASH;
     let capacidadeDisco = 0.0;
 
-    function mudarDash(id) {
-
+    function mudarDash() {
+        let id = maquinas_select.value;
         sessionStorage.ID_MAQUINA_DASH = id;
-        window.location.reload(true);
+        window.location = "dashboard.html"
     }
 
     // SELECT COM O NOME DAS MAQUINAS
@@ -87,7 +86,7 @@
             .then(function (resposta) {
                 resposta.json().then((maquinas) => {
                     maquinas.forEach((maquina) => {
-                        maquinas_select.innerHTML += `<option onclick="mudarDash(${maquina.idMaquina})" value='${maquina.idMaquina}'>${maquina.nomeMaquina}</option>`;
+                        maquinas_select.innerHTML += `<option value='${maquina.idMaquina}'>${maquina.nomeMaquina}</option>`;
 
                         if(maquina.idMaquina == idMaquina) {
                             capacidadeDisco = maquina.maxDisco;
