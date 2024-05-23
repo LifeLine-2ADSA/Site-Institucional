@@ -15,7 +15,11 @@ function cadastrar(nomeMaquina) {
 }
 
 function listarMaquinas(idUsuario) {
-  var instrucaoSql = `SELECT * FROM maquina JOIN registro ON maquina.idMaquina = registro.fkMaquina WHERE maquina.fkUsuario = ${idUsuario}`
+  var instrucaoSql = `SELECT m.*, r.* FROM maquina m
+  JOIN registro r ON r.fkMaquina = m.idMaquina
+  JOIN (SELECT fkMaquina, MAX(idRegistro) AS MaxId FROM registro GROUP BY fkMaquina) 
+  AS ultimoRegistro ON r.fkMaquina = ultimoRegistro.fkMaquina AND r.idRegistro = ultimoRegistro.MaxId 
+  WHERE m.fkUsuario = ${idUsuario}`
 
   console.log("Executando a instrução SQL: \n" + instrucaoSql);
   return database.executar(instrucaoSql);
