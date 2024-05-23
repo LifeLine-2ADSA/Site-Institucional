@@ -9,7 +9,6 @@
     gap: 1rem;
     flex-wrap: wrap;
 }
-/* TODO: card ta quebradasso */
 .cards .card {
     display: flex;
     flex-direction: column;
@@ -54,6 +53,10 @@
     border-radius: 10px;
     display: inline-block;
     position: relative;
+    max-width: 50%;
+    overflow: hidden;
+    text-wrap: nowrap;
+    text-overflow: ellipsis;
 }
 .card__content h3::after {
     content: "";
@@ -86,7 +89,7 @@
     overflow: hidden;
     display: -webkit-box;
     -webkit-line-clamp: 3;
-    -webkit-box-orient:vertical ;
+    -webkit-box-orient:vertical;
 }
 
 .card:hover {

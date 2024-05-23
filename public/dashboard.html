@@ -10,7 +10,7 @@
     <script src="https://kit.fontawesome.com/f0ba5f04ed.js" crossorigin="anonymous"></script>
 </head>
 
-<body onload="listarMaquinas(), obterDados()">
+<body onload="listarMaquinas()">
     <div class="body-dash">
         <div class="side-bar">
             <img id="img-logo" src="./home/assets/images/logoLifeLine.png" alt="">
@@ -90,14 +90,17 @@
 
                         if(maquina.idMaquina == idMaquina) {
                             capacidadeDisco = maquina.maxDisco;
+                            console.log(capacidadeDisco)
                         }
                     });  
                 });
-                console.log(resposta)
+                obterDados();
             })
             .catch(function (resposta) {
                 console.log(`#ERRO: ${resposta}`);
             });
+
+            
         
     }
 
@@ -160,6 +163,8 @@
 
         let consumoDisco = resposta[resposta.length - 1].consumoDisco;
         let livreDisco = capacidadeDisco - consumoDisco;
+        console.log(capacidadeDisco)
+        console.log(consumoDisco)
 
         let dados_grafico2 = {
             labels: labels_grafico2,
@@ -189,7 +194,6 @@
 
         console.log('----------------------------------------------')
         console.log('Estes dados foram recebidos pela funcao "listarMaquina" e passados para "plotarGrafico":')
-        console.log(resposta)
 
         // Inserindo valores recebidos em estrutura para plotar o gráfico
 

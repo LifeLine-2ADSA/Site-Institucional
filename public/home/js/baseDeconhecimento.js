@@ -1,7 +1,8 @@
 // selectors
 const configButtons = document.querySelectorAll(".config");
 const modal = document.querySelector(".modal-config");
-const modalCloseButton = document.querySelector(".modal-config__close-modal");
+const modalPost = document.querySelector(".modal-config.post");
+const modalCloseButton = document.querySelectorAll(".modal-config__close-modal");
 const root = document.querySelector(":root");
 const themeToggleButton = document.querySelector(".theme-toggle");
 const exitButton = document.querySelector(".exit");
@@ -62,11 +63,22 @@ if (fontSize) {
 
 // handlers
 const handleConfigModalState = () => {
+  console.log(modalCloseButton)
   if (modal.style.display == "none") {
     modal.style.display = "flex";
     document.body.style.overflowY = "hidden";
   } else {
     modal.style.display = "none";
+    document.body.style.overflowY = "visible";
+  }
+};
+const handlePostModalState = () => {
+  console.log(modalCloseButton)
+  if (modalPost.style.display == "none") {
+    modalPost.style.display = "flex";
+    document.body.style.overflowY = "hidden";
+  } else {
+    modalPost.style.display = "none";
     document.body.style.overflowY = "visible";
   }
 };
@@ -121,7 +133,9 @@ configButtons.forEach(function (button) {
   button.addEventListener("click", handleConfigModalState);
 });
 
-modalCloseButton.addEventListener("click", handleConfigModalState);
+modalCloseButton.forEach(function (closeButton) {
+  closeButton.addEventListener("click", handleConfigModalState);
+})
 
 themeToggleButton.addEventListener("click", handleThemeToggle);
 
@@ -146,6 +160,11 @@ fontSizes.forEach(function (size) {
 });
 
 
+
+
+
+
+/// FUNÇÕES
 function getPosts() {
   fetch('/post/listPosts', {
   method: 'GET',
@@ -172,6 +191,25 @@ function getPosts() {
     })
   })
 })
+
 }
 
 getPosts()
+setTimeout(() => {
+  
+  const card =  document.querySelectorAll(".card");
+  
+  
+    console.log(card);  
+    card.forEach(function (card) {
+      card.addEventListener('click', () => {
+        modal.innerHTML += `
+        div mascara
+        `
+        handleConfigModalState()
+        console.log('dentro do foreach')
+        console.log(modalCloseButton)
+      })
+    })
+}, 300);
+
