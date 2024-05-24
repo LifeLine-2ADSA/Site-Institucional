@@ -81,18 +81,18 @@
     // SELECT COM O NOME DAS MAQUINAS
     function listarMaquinas() {
         fetch(`/maquina/listarMaquinas/${sessionStorage.ID_USUARIO}`, {
-        method: "GET",
-    })
+            method: "GET",
+        })
             .then(function (resposta) {
                 resposta.json().then((maquinas) => {
                     maquinas.forEach((maquina) => {
                         maquinas_select.innerHTML += `<option value='${maquina.idMaquina}'>${maquina.nomeMaquina}</option>`;
 
-                        if(maquina.idMaquina == idMaquina) {
+                        if (maquina.idMaquina == idMaquina) {
                             capacidadeDisco = maquina.maxDisco;
                             console.log(capacidadeDisco)
                         }
-                    });  
+                    });
                 });
                 obterDados();
             })
@@ -100,8 +100,8 @@
                 console.log(`#ERRO: ${resposta}`);
             });
 
-            
-        
+
+
     }
 
     // KPIS
@@ -122,7 +122,7 @@
                     segunda_kpi.innerHTML = `Sua máquina teve ${resposta.length} alertas durante a semana`
                     terceira_kpi.innerHTML = `A temperatura da sua máquina está em ${resposta[resposta.length - 1].temperatura}ºC isso pode causar o desligamento o da maquina`
                     quarta_kpi.innerHTML = `Atualmente a janela '${resposta[resposta.length - 1].nomeJanela}' é a mais prejudicial ao desempenho de sua maquina`
-                
+
                     plotarGrafico(resposta);
                 });
             } else {
@@ -132,10 +132,10 @@
             .catch(function (error) {
                 console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
             });
-        }
+    }
 
-        
-        function plotarGrafico(resposta) {
+
+    function plotarGrafico(resposta) {
         console.log('iniciando plotagem dos gráficos...');
         // DASH'S
         const ctx1 = document.getElementById('myChart');
@@ -186,7 +186,7 @@
         let dados_grafico4 = {
             labels: labels_grafico4,
             datasets: [{
-                label: '',
+                label: '# of Votes',
                 data: [],
                 borderWidth: 1
             }]
@@ -199,12 +199,24 @@
 
         for (i = 0; i < resposta.length; i++) {
             var registro = resposta[i];
+            var data = registro.dataHora;
+            console.log(data)
+            const date = new Date(data);
+            const hora = String(date.getHours()).padStart(2, '0');
+            const minuto = String(date.getMinutes()).padStart(2, '0');
+            const segundo = String(date.getSeconds()).padStart(2, '0');
+            const horaFormatada = `${hora}:${minuto}:${segundo}`;
 
-            labels_grafico1.push(registro.dataHora);
+
+            labels_grafico1.push(horaFormatada);
             dados_grafico1.datasets[0].data.push(registro.consumoCpu);
 
-            labels_grafico3.push(registro.dataHora);
+            labels_grafico3.push(horaFormatada);
             dados_grafico3.datasets[0].data.push(registro.consumoRam);
+
+
+            labels_grafico4.push(horaFormatada);
+            dados_grafico4.datasets[0].data.push(registro.temperatura);
         }
 
         // Criando estrutura para plotar gráfico - config
@@ -221,7 +233,7 @@
             data: dados_grafico3,
         };
         const config_grafico4 = {
-            type: 'bar',
+            type: 'line',
             data: dados_grafico4,
         };
 
@@ -243,56 +255,62 @@
             config_grafico4
         );
 
-        //setTimeout(() => atualizarGrafico(dados, myChart1, myChart2, myChart3, myChart4), 2000);
+        setInterval(() => atualizarGrafico(dados_grafico1, consumoDisco, dados_grafico3, dados_grafico4, myChart1, myChart2, myChart3, myChart4), 10000);
     }
 
-
-    // Esta função *atualizarGrafico* atualiza o gráfico que foi renderizado na página,
-    // buscando a última medida inserida em tabela contendo as capturas, 
-
-    //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
-    //     Para ajustar o "select", ajuste o comando sql em src/models
-    function atualizarGrafico(dados, myChart1, myChart2, myChart3, myChart4) {
+    function atualizarGrafico(dados_grafico1, consumoDisco, dados_grafico3, dados_grafico4, myChart1, myChart2, myChart3, myChart4) {
         fetch(`/medidas/tempo-real/${idMaquina}`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
                 response.json().then(function (novoRegistro) {
-
-                    // obterdados(idAquario);
-                    // alertar(novoRegistro, idAquario);
                     console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
-                    console.log(`Dados atuais do gráfico:`);
-                    console.log(dados);
 
-                    if (novoRegistro[0].dataHorario == dados_grafico1.labels[dados_grafico1.labels.length - 1]) {
+
+                    var dataRegistro = novoRegistro[0].dataHora;
+
+                    const dateRegistro = new Date(dataRegistro);
+                    const horaRegistro = String(dateRegistro.getHours()).padStart(2, '0');
+                    const minutoRegistro = String(dateRegistro.getMinutes()).padStart(2, '0');
+                    const segundoRegistro = String(dateRegistro.getSeconds()).padStart(2, '0');
+                    const horaFormatadaRegistro = `${horaRegistro}:${minutoRegistro}:${segundoRegistro}`;
+
+
+                    if (horaFormatadaRegistro == dados_grafico1.labels[dados_grafico1.labels.length - 1]) {
                         console.log("---------------------------------------------------------------")
                         console.log("Como não há dados novos para captura, o gráfico não atualizará.")
-                        console.log("Horário do novo dado capturado:")
-                        console.log(novoRegistro[0].dataHorario)
                     } else {
+
+                        var data = novoRegistro[0].dataHora;
+
+                        const date = new Date(data);
+                        const hora = String(date.getHours()).padStart(2, '0');
+                        const minuto = String(date.getMinutes()).padStart(2, '0');
+                        const segundo = String(date.getSeconds()).padStart(2, '0');
+                        const horaFormatada = `${hora}:${minuto}:${segundo}`;
+
                         // Grafico de consumo de CPU
                         dados_grafico1.labels.shift();
-                        dados_grafico1.labels.push(novoRegistro[0].dataHorario);
+                        dados_grafico1.labels.push(horaFormatada);
                         dados_grafico1.datasets[0].data.shift();
                         dados_grafico1.datasets[0].data.push(novoRegistro[0].consumoCpu);
 
                         // Grafico de consumo de RAM
 
-                        dados_grafico2.labels.shift();
-                        dados_grafico2.labels.push(novoRegistro[0].dataHorario);
-                        dados_grafico2.datasets[0].data.shift();
-                        dados_grafico2.datasets[0].data.push(novoRegistro[0].consumoCpu);
+                        dados_grafico3.labels.shift();
+
+                        dados_grafico3.labels.push(horaFormatada);
+                        dados_grafico3.datasets[0].data.shift();
+                        dados_grafico3.datasets[0].data.push(novoRegistro[0].consumoCpu);
 
                         // Grafico de consumo de Disco
 
-                        dados_grafico3.datasets[0].data.shift();
-                        dados_grafico3.datasets[0].data.push(novoRegistro[0].consumoCpu);
+                        consumoDisco = novoRegistro[0].consumoDisco
 
                         // Grafico de Temperatura
 
                         dados_grafico4.labels.shift();
-                        dados_grafico4.labels.push(novoRegistro[0].dataHorario);
+                        dados_grafico4.labels.push(horaFormatada);
                         dados_grafico4.datasets[0].data.shift();
-                        dados_grafico4.datasets[0].data.push(novoRegistro[0].consumoCpu);
+                        dados_grafico4.datasets[0].data.push(novoRegistro[0].temperatura);
 
                         // update
                         myChart1.update();

@@ -19,15 +19,15 @@ function fetchInfoMaquinas() {
         
                       <div class="kpisMaquina">
                         <div class="kpiMaquina">
-                          <h2>${(maquina.consumoCpu / maquina.maxCpu * 100).toFixed(1)}%</h2>
+                          <h2>${(maquina.consumoCpu / maquina.maxCpu * 100).toFixed(0)}%</h2>
                           <p class="">CPU</p>
                         </div>
                         <div class="kpiMaquina">
-                          <h2>${(maquina.consumoRam / maquina.maxRam * 100).toFixed(1)}%</h2>
+                          <h2>${(maquina.consumoRam / maquina.maxRam * 100).toFixed(0)}%</h2>
                           <p class="">RAM</p>
                         </div>
                         <div class="kpiMaquina">
-                          <h2>${(maquina.consumoDisco / maquina.maxDisco * 100).toFixed(1)}%</h2>
+                          <h2>${(maquina.consumoDisco / maquina.maxDisco * 100).toFixed(0)}%</h2>
                           <p class="">DISCO</p>
                         </div>
                       </div>

@@ -1,8 +1,8 @@
 var database = require("../database/config");
 
-function buscarUltimasMedidas(idmaquina, limite_linhas) {
+function buscarUltimasMedidas(idmaquina) {
 
-    var instrucaoSql = `SELECT * FROM registro WHERE fkMaquina = ${idmaquina}`;
+    var instrucaoSql = `SELECT * FROM registro WHERE fkMaquina = ${idmaquina} ORDER BY idRegistro DESC LIMIT 8`;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
@@ -10,7 +10,7 @@ function buscarUltimasMedidas(idmaquina, limite_linhas) {
 
 function buscarMedidasEmTempoReal(idmaquina) {
 
-    var instrucaoSql = `SELECT * FROM registro WHERE fkMaquina = ${idmaquina}`;
+    var instrucaoSql = `SELECT * FROM registro WHERE fkMaquina = ${idmaquina} ORDER BY idRegistro DESC LIMIT 1`;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
