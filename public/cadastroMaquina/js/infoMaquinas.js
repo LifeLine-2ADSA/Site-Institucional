@@ -8,8 +8,7 @@ function fetchInfoMaquinas() {
         .then(resposta => {
             resposta.json().then(maquinas => {
               listMaquinas = maquinas
-                console.log(maquinas)
-                maquinas.forEach((maquina) => {
+                maquinas.forEach(maquina => {
 
                     maquinas_div.innerHTML +=
                      `
