@@ -8,6 +8,16 @@ function getPosts() {
   return database.executar(instrucaoSql);
 }
 
+
+function cadastrar(nome, tags, descricao, idUsuario) {
+  var instrucao = `
+      INSERT INTO postagem (titulo,fkUsuario, tag, conteudo) VALUES ('${nome}',${idUsuario}, '${tags}','${descricao}');
+  `;
+  console.log("Executando a instrução SQL: \n" + instrucao);
+  return database.executar(instrucao);
+}
+
 module.exports = {
-  getPosts
+  getPosts,
+  cadastrar
 }
