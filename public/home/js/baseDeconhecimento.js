@@ -189,7 +189,7 @@ function getPosts() {
         </div>
     </div>
     <div class="card__footer">
-        <p>${card.nome}</p>
+    <img src="./home/assets/images/user-light-mode.png" width="20" height="20"><p>${card.nome}</p>
     </div>
 </div>`
     })
