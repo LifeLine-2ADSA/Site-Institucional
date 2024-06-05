@@ -176,18 +176,22 @@ function getPosts() {
     let cardsJson = json
     cardsJson.forEach(card => {
       cards.innerHTML += `
-      <div class="card" id=${card.idPostagem}>
-                <div class="card__content">
-                    <h3>${card.titulo}</h3>
-                    <div class="content__tag">${card.tag}</div>
-                    <div class="content__description">
-                    ${card.conteudo}
-                    </div>
-                </div>
-                <div class="card__footer">
-                    <p>${card.nome}</p> <p>Empresa</p> <p>data/hora</p>
-                </div>
-            </div>`
+      
+      <div class="card" id="${card.idPostagem}">
+    <div class="card_header">
+        <div class="content__tag">${card.tag}</div>
+        <div class="go-corner"><div class="go-arrow">→</div></div>
+    </div>
+    <div class="card__content">
+        <h3>${card.titulo}</h3>
+        <div class="content__description">
+            ${card.conteudo}
+        </div>
+    </div>
+    <div class="card__footer">
+    <img src="./home/assets/images/user-light-mode.png" width="20" height="20"><p>${card.nome}</p>
+    </div>
+</div>`
     })
   })
 })
