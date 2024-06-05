@@ -28,6 +28,10 @@ if (view) {
     "--img-icon__close",
     'url("../../assets/images/close.svg")'
   );
+  // root.style.setProperty(
+  //   "--img-icon__user-card",
+  //   'url("url("../../assets/images/user-dark-mode.png")'
+  // );
 } else {
   root.style.setProperty(
     "--img-icon__theme",
@@ -41,6 +45,10 @@ if (view) {
     "--img-icon__close",
     'url("../../assets/images/close-lightmode.svg")'
   );
+  // root.style.setProperty(
+  //   "--img-icon__user-card",
+  //   'url("url("../../assets/images/user-light-mode.png")'
+  // );
 }
 
 const removeActiveClass = () => {
@@ -176,21 +184,23 @@ function getPosts() {
     let cardsJson = json
     cardsJson.forEach(card => {
       cards.innerHTML += `
-      
       <div class="card" id="${card.idPostagem}">
-    <div class="card_header">
-        <div class="content__tag">${card.tag}</div>
-        <div class="go-corner"><div class="go-arrow">→</div></div>
-    </div>
-    <div class="card__content">
+        <div class="card_header">
+          <div class="content__tag">${card.tag}</div>
+          <div class="go-corner">
+            <div class="go-arrow">→</div>
+          </div>
+        </div>
+      <div class="card__content">
         <h3>${card.titulo}</h3>
         <div class="content__description">
             ${card.conteudo}
         </div>
-    </div>
-    <div class="card__footer">
-    <img src="./home/assets/images/user-light-mode.png" width="20" height="20"><p>${card.nome}</p>
-    </div>
+      </div>
+      <div class="card__footer">
+      <div class="card__image"></div>
+      <p>${card.nome}</p>
+      </div>
 </div>`
     })
   })

@@ -1,12 +1,15 @@
+:root {
+    --img-icon__user-card: url('../../assets/images/user-light-mode.png');
+}
 /* Estilização do grupo de cards */
 .cards {
     background-color: inherit;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /* align-items: start; */
     align-items: flex-start;
     /* margin: 0 1rem; */
+    gap: 2.75rem;
     flex-wrap: wrap;
 }
 /* Estilização do card */
@@ -127,11 +130,16 @@
     font-family: sans-serif;
     font-size: 10px;
 }
-.card__footer p:nth-child(2) {
-    display: none;
+.card__footer .card__image{
+    background-image: var(--img-icon__user-card);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: var(--size-lg);
+    height: var(--size-lg);
 }
-
-
+/* .card__footer p:nth-child(2) {
+    display: none;
+} */
 /* .card__content h3::after {
     content: "";
     position: absolute;
@@ -142,8 +150,6 @@
     border-radius: 100px;
     left: 5px;
 } */
-
-
 /* .card:hover efeito {
     width: 100%;
     max-width: 320px;
