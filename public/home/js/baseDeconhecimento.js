@@ -185,12 +185,16 @@ function getPosts() {
     cardsJson.forEach(card => {
       cards.innerHTML += `
       <div class="card" id="${card.idPostagem}">
-        <div class="card_header">
-          <div class="content__tag">${card.tag}</div>
-          <div class="go-corner">
-            <div class="go-arrow">→</div>
+          <div class="card_header">
+             <div class="content__tag">
+              ${card.tag}
+             </div>
+             <div class="go-corner">
+                <div class="go-arrow">
+                →
+                </div>
+             </div>
           </div>
-        </div>
       <div class="card__content">
         <h3>${card.titulo}</h3>
         <div class="content__description">
