@@ -1,25 +1,23 @@
 :root {
     --img-icon__user-card: url('../../assets/images/user-light-mode.png');
 }
-/* Estilização do grupo de cards */
+/* Estilización del grupo de cards */
 .cards {
     background-color: inherit;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    /* margin: 0 1rem; */
     gap: 2.75rem;
     flex-wrap: wrap;
 }
-/* Estilização do card */
+/* Estilización del card */
 .cards .card {
-    display: block;
-    border-radius: 0px  15px 0px 15px;
+    border-radius: 0.8rem 0.8rem 0.8rem 0.8rem;
     width: var(--size-3xxl);
     height: var(--size-9xl);
     background-color: var(--clr-secondary);
-    box-shadow: var(--clr-shadown-card);
+    box-shadow: var(--clr-shadow-card);
     z-index: 0;
     overflow: hidden;
     transition: all 0.3s;
@@ -27,9 +25,19 @@
 
 .cards .card:hover {
     transform: scale(1.1);
+    transition: all 0.2s ease-out;
+    box-shadow: 0px 4px 8px rgba(38, 38, 38, 0.2);
+    /* top: -4px; */
+    border: 1px solid #ccc;
+    color: white;
+    z-index: 500;
 }
 
-/* efeitos card */
+.cards .card:hover:before {
+    transform: scale(21);
+}
+
+/* efectos card */
 .cards .card:before {
     content: "";
     position: absolute;
@@ -37,18 +45,28 @@
     top: -16px;
     right: -16px;
     background: var(--clr-primary);
-    height: 32px;
-    width: 32px;
+    height: 2rem;
+    width: 2rem;
     border-radius: 32px;
     transform: scale(1);
-    transform-origin: 50% 50%;
+    /* transform-origin: 50% 50%; */
     transition: transform 0.25s ease-out;
-  }
+}
 
-.cards .card:hover:before {
-    transform: scale(21);
-  }
-/* Estilização header card */
+.cards .card .card__content:hover {
+    color: #fff;
+}
+
+.cards .card .content__description:hover {
+    color: #fff;
+}
+
+.cards .card:hover .go-corner {
+    transition: opacity 0.3s linear;
+    opacity: 1;
+}
+
+/* Estilización header card */
 .card .card_header {
     padding-left: 2%;
     display: flex;
@@ -57,45 +75,46 @@
     width: 100%;
 }
 
-/* Estlização da tag */
+/* Estilización de la tag */
 .card .card_header .content__tag {
     height: var(--size-xl);
     width: var(--size-5xl);
-    position:relative;
+    position: relative;
     border-radius: 12px;
-    /* left: 100px;*/
     top: 8px;
     text-align: center;
     color: var(--clr-font-primary);
     font-family: sans-serif;
     font-size: 12px;
     background-color: var(--clr-primary);
+}
 
+.card .card_header .content__tag:hover p {
+    color: #00838d;
 }
 
 .card .card_header .go-corner {
     display: flex;
     align-items: center;
     justify-content: center;
-    /* position: absolute; */
     width: 32px;
     height: 32px;
     overflow: hidden;
     background-color: var(--clr-primary);
     border-radius: 0 4px 0 32px;
-  }
+}
 
- .card .card_header .go-corner .go-arrow {
+.card .card_header .go-corner .go-arrow {
     margin-top: -4px;
-  margin-right: -4px;
+    margin-right: -4px;
     transform: skew(-6deg);
     font-size: small;
     color: rgb(227, 236, 245);
-  }
+}
 
 /* Conteúdo do card */
 
-/* Estilização do título do card */
+/* Estilización del título del card */
 .card__content h3 {
     background-color: inherit;
     font-family: sans-serif;
@@ -107,81 +126,53 @@
     overflow: hidden;
     text-wrap: nowrap;
     text-overflow: ellipsis;
-    color: var(--clr-font-card-title); 
-
+    color: var(--clr-font-card-title);
 }
-/* Estlização do conteúdo do card */
+
+/* Estilización del contenido del card */
 .cards .card__content {
     height: 70%;
     width: var(--size-3xxl);
     border-radius: 10px 10px 0 0;
     position: relative;
-    /* background-color: var(--clr-secondary); */
     padding: 2.5%;
-    /* filter: drop-shadow(0 5px 0.25rem rgba(0,0,0,0.25)); */
 }
-/* Estilização da descrição do card */
+
+/* Estilización de la descripción del card */
 .card__content .content__description {
     background-color: inherit;
-    padding: .25rem;
+    padding: 0.25rem;
     font-size: 1rem;
     max-height: 73%;
     overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient:vertical;
+    /* display: -webkit-box; */
+    /* -webkit-line-clamp: 3; */
+    /* -webkit-box-orient: vertical; */
 }
 
-/* Estilização do footer do card */
-
+/* Estilización del footer del card */
 .card .card__footer {
     display: flex;
     gap: 5px;
-    background-color: inherit;
     height: 20%;
     width: 100%;
     padding-left: 2.5%;
 }
+
 .card__footer p {
-    padding: 0.1rem .5rem;
+    padding: 0.1rem 0.5rem;
     color: var(--clr-font-card-title);
     font-family: sans-serif;
     font-size: 10px;
 }
-.card__footer .card__image{
+
+.card__footer .card__image {
     background-image: var(--img-icon__user-card);
     background-size: 100%;
     background-repeat: no-repeat;
     width: var(--size-lg);
     height: var(--size-lg);
 }
-/* .card__footer p:nth-child(2) {
-    display: none;
-} */
-/* .card__content h3::after {
-    content: "";
-    position: absolute;
-    background-color: black;
-    height: var(--size-4xs);
-    width: 100%;
-    bottom: 2px;
-    border-radius: 100px;
-    left: 5px;
-} */
-/* .card:hover efeito {
-    width: 100%;
-    max-width: 320px;
-    height: 250px;
-    z-index: 9999;
-    .card__content {
-        height: 90%;
-    }
-    .content__description{
-    height: 90%;
-    display: flex;
-    -webkit-line-clamp: 40;
-    -webkit-box-orient:vertical;}
-} */
 
 @media (min-width: 475px) {}
 
@@ -192,32 +183,21 @@
         justify-content: space-evenly;
         gap: 1rem;
     }
-    .card:hover {
+    .cards .card:hover {
         max-width: 508px;
     }
 }
 
-/* md */
 @media (min-width: 868px) {}
 
-/* lg Efeito
-@media (min-width: 1024px) {
-    .card:hover {
-        /* max-width: 764px; */
-    
-
-/* xl */
 @media (min-width: 1280px) {
-    .card:hover {
-       max-width: 1022px; 
+    .cards .card:hover {
+        max-width: 1022px;
     }
-} 
+}
 
-/* 2xl */
-@media (min-width: 1536px) {} 
+@media (min-width: 1536px) {}
 
-/* 3xl */
 @media (min-width: 1850px) {}
 
-/* TV */
 @media (min-width: 2400px) {}
