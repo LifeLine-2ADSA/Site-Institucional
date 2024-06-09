@@ -196,10 +196,10 @@ function getPosts() {
              </div>
           </div>
       <div class="card__content">
-        <h3>${card.titulo}</h3>
-        <div class="content__description">
+        <p class="content_title">${card.titulo}</p>
+        <p class="content__description">
             ${card.conteudo}
-        </div>
+        </p>
       </div>
       <div class="card__footer">
       <div class="card__image"></div>
