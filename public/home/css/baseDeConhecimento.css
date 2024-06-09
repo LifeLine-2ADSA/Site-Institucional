@@ -24,6 +24,8 @@
    --clr-shadownsearch-bar: #dfdfdf;
    /* cor botão */
    --clr-botton:#0a4c54;
+   /* cor simbolo botão */
+   --clr-plus-botton: #f0feff;
 
     /* sizes */
     --size-4xs: 0.2rem;
@@ -60,6 +62,7 @@
        --clr-font-modal: #c2c5dc;
        --clr-font-card-title:#083a5b;
        --clr-botton:#dfdfdf;
+       --clr-plus-botton: #083a5b;
    }
    
    * {
@@ -194,7 +197,7 @@
   .toggle:before {
     box-shadow: 0;
     border-radius: 84.5px;
-    background: #FFF;
+    /* background: var(--clr-plus-botton); */
     position: absolute;
     margin-left: -36px;
     margin-top: -36px;
@@ -235,7 +238,7 @@
     opacity: 0.9;
     height: 100%;
     width: 100%;
-    color: rgba(255, 255, 255, 0.9);
+    color: var(--clr-plus-botton);
   }
   
   .toggle input {
@@ -263,11 +266,6 @@
     filter: blur(0.5px);
     /* box-shadow: 0 10px 25px -4px rgba(67, 120, 132, 0.4), inset 0 -8px 25px -1px rgba(255, 255, 255, 0.9), 0 -10px 15px -1px rgba(255, 255, 255, 0.6), inset 0 8px 20px 0 rgba(0, 0, 0, 0.2), inset 0 0 5px 1px rgba(255, 255, 255, 0.6); */
   }
-  
-  .toggle input:checked ~ .label {
-    color: rgba(255, 255, 255, 0.8);
-  }
-  
 
    /* Fim da estilização do botão adicionar */
    @media (min-height: 900px){
