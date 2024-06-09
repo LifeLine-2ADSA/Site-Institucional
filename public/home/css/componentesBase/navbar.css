@@ -61,9 +61,8 @@
     bottom: -7px;
     border-radius: 100px;
     left: 0;
-    transition: .3s ease-in-out;
+    transition:.3s ease-in-out;
 }
-
 .navbar .navbar__icon:hover::after {
     width: 100%;
 }
