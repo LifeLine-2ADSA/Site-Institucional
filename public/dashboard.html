@@ -118,9 +118,9 @@
                     const ano = date.getUTCFullYear();
                     const dataFormatada = `${dia}/${mes}/${ano}`;
 
-                    primeira_kpi.innerHTML = `Em ${dataFormatada} sua máquina excedeu o limite de CPU`
-                    segunda_kpi.innerHTML = `Sua máquina teve ${resposta.length} alertas durante a semana`
-                    terceira_kpi.innerHTML = `A temperatura da sua máquina está em ${resposta[resposta.length - 1].temperatura}ºC isso pode causar o desligamento o da maquina`
+                    primeira_kpi.innerHTML = `<img src="./home/assets/images/icons8-high-priority-50.png" width="30" height="30"> Em ${dataFormatada} sua máquina excedeu o limite de CPU`
+                    segunda_kpi.innerHTML = `<img src="./home/assets/images/icons8-alerta-50.png" width="30" height="30"> Sua máquina teve ${resposta.length} alertas durante a semana`
+                    terceira_kpi.innerHTML = `<img src="./home/assets/images/icons8-temperatura-30.png" width="40" height="40"> A temperatura da sua máquina está em ${resposta[resposta.length - 1].temperatura}ºC isso pode causar o desligamento o da maquina`
                     quarta_kpi.innerHTML = `Atualmente a janela '${resposta[resposta.length - 1].nomeJanela}' é a mais prejudicial ao desempenho de sua maquina`
 
                     plotarGrafico(resposta);
