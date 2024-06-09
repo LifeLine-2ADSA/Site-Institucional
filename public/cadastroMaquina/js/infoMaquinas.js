@@ -9,6 +9,7 @@ function fetchInfoMaquinas() {
             resposta.json().then(maquinas => {
               listMaquinas = maquinas
                 maquinas.forEach(maquina => {
+                  let consumoCpu = (maquina.consumoCpu / maquina.maxCpu * 100).toFixed(0)
 
                     maquinas_div.innerHTML +=
                      `
@@ -21,7 +22,7 @@ function fetchInfoMaquinas() {
         
                       <div class="kpisMaquina">
                         <div class="kpiMaquina">
-                          <h2>${(maquina.consumoCpu / maquina.maxCpu * 100).toFixed(0)}%</h2>
+                          <h2>${consumoCpu >= 100 ? 100 : consumoCpu}%</h2>
                           <p class="">CPU</p>
                         </div>
                         <div class="kpiMaquina">
@@ -109,11 +110,6 @@ function filterByName() {
   })
   }
 }
-
-inputNomeMaquina.addEventListener('onchange', event => {
-  
-})
-
 
 function redirecionarDash(idMaquina) {
     sessionStorage.ID_MAQUINA_DASH = idMaquina;

@@ -19,6 +19,7 @@ for (let message of messages) {
 
 async function addMessage() {
   const inputMessage = document.getElementById('inputMessage')
+  const currentDate = new Date()
 
   if (inputMessage.value) messages.push(inputMessage.value)
   else alert("Insira uma mensagem")
@@ -26,7 +27,7 @@ async function addMessage() {
   messagesElement.innerHTML += `<div class="containerMessage right">
   <div class="messageAndHour">
     <div class="time">
-      <p>Cecilia - 19:20</p>
+      <p>${sessionStorage.NOME_USUARIO} - ${currentDate.getHours()}:${currentDate.getMinutes()}</p>
     </div>
     <div class="message">
       <p>${messages[messages.length - 1]}</p>
@@ -74,10 +75,11 @@ async function sendMessage(message) {
 }
 
 function addAnswer(answer) {
+  const currentDate = new Date()
   messagesElement.innerHTML += `<div class="containerMessage">
   <div class="messageAndHour">
     <div class="time">
-      <p>Cecilia - 19:20</p>
+      <p>Suporte(IA) - ${currentDate.getHours()}:${currentDate.getMinutes()}</p>
     </div>
     <div class="message">
       <p>${answer}</p>

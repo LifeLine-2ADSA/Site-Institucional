@@ -1,13 +1,16 @@
 // selectors
 const configButtons = document.querySelectorAll(".config");
 const modal = document.querySelector(".modal-config");
-const modalPost = document.querySelector(".modal-config.post");
-const modalCloseButton = document.querySelectorAll(".modal-config__close-modal");
+const modalPost = document.querySelector(".modal-card");
+const modalCloseButtonConfig = document.querySelector(".modal-config__close-modal");
+const modalCloseButtonCard = document.querySelector(".modal-card__close-modal");
 const root = document.querySelector(":root");
 const themeToggleButton = document.querySelector(".theme-toggle");
 const exitButton = document.querySelector(".exit");
 const fontSizes = document.querySelectorAll(".sizes__pick-size span");
 const cards = document.querySelector(".cards");
+const inputSearch = document.querySelector('.pesquisa__input')
+let posts = []
 // state
 
 const view = sessionStorage.getItem("theme");
@@ -71,7 +74,7 @@ if (fontSize) {
 
 // handlers
 const handleConfigModalState = () => {
-  console.log(modalCloseButton)
+  console.log(modalCloseButtonConfig)
   if (modal.style.display == "none") {
     modal.style.display = "flex";
     document.body.style.overflowY = "hidden";
@@ -80,9 +83,11 @@ const handleConfigModalState = () => {
     document.body.style.overflowY = "visible";
   }
 };
+
+handleConfigModalState ()
 const handlePostModalState = () => {
-  console.log(modalCloseButton)
-  if (modalPost.style.display == "none") {
+  console.log(modalPost)
+  if (modalPost.style.display === "none") {
     modalPost.style.display = "flex";
     document.body.style.overflowY = "hidden";
   } else {
@@ -90,6 +95,8 @@ const handlePostModalState = () => {
     document.body.style.overflowY = "visible";
   }
 };
+
+handlePostModalState()
 
 const handleUserExit = () => {
   if (
@@ -141,9 +148,8 @@ configButtons.forEach(function (button) {
   button.addEventListener("click", handleConfigModalState);
 });
 
-modalCloseButton.forEach(function (closeButton) {
-  closeButton.addEventListener("click", handleConfigModalState);
-})
+modalCloseButtonConfig.addEventListener("click", handleConfigModalState);
+modalCloseButtonCard.addEventListener("click", handlePostModalState);
 
 themeToggleButton.addEventListener("click", handleThemeToggle);
 
@@ -175,19 +181,20 @@ fontSizes.forEach(function (size) {
 /// FUNÇÕES
 function getPosts() {
   fetch('/post/listPosts', {
-  method: 'GET',
-  "Content-Type": "application/json",
-})
-.then(res => {
-  res.json().then(json => {
-    console.log(json)
-    let cardsJson = json
-    cardsJson.forEach(card => {
-      cards.innerHTML += `
-      <div class="card" id="${card.idPostagem}">
+    method: 'GET',
+    "Content-Type": "application/json",
+  })
+    .then(res => {
+      res.json().then(json => {
+        posts = json
+
+        console.log(posts)
+        posts.forEach(post => {
+          cards.innerHTML += `
+      <div class="card" id="${post.idPostagem}">
           <div class="card_header">
              <div class="content__tag">
-              ${card.tag}
+              ${post.tag}
              </div>
              <div class="go-corner">
                 <div class="go-arrow">
@@ -196,38 +203,69 @@ function getPosts() {
              </div>
           </div>
       <div class="card__content">
-        <p class="content_title">${card.titulo}</p>
+        <p class="content_title">${post.titulo}</p>
         <p class="content__description">
-            ${card.conteudo}
+            ${post.conteudo}
         </p>
       </div>
       <div class="card__footer">
       <div class="card__image"></div>
-      <p>${card.nome}</p>
+      <p>${post.nome}</p>
       </div>
 </div>`
+        })
+      })
     })
-  })
-})
 
 }
 
 getPosts()
+
+inputSearch.addEventListener('keyup', event => {
+  const filtredPosts = posts.filter(post => post.titulo.toLowerCase().includes(inputSearch.value.toLowerCase()))
+  if (filtredPosts.length > 0) {
+    cards.innerHTML = ''
+    filtredPosts.forEach(post => {
+      cards.innerHTML += `
+      <div class="card" id="${post.idPostagem}">
+          <div class="card_header">
+             <div class="content__tag">
+              ${post.tag}
+             </div>
+             <div class="go-corner">
+                <div class="go-arrow">
+                →
+                </div>
+             </div>
+          </div>
+      <div class="card__content">
+        <p class="content_title">${post.titulo}</p>
+        <p class="content__description">
+            ${post.conteudo}
+        </p>
+      </div>
+      <div class="card__footer">
+      <div class="card__image"></div>
+      <p>${post.nome}</p>
+      </div>
+</div>`
+    })
+  }
+})
+
 setTimeout(() => {
-  
-  const card =  document.querySelectorAll(".card");
-  
-  
-    console.log(card);  
-    card.forEach(function (card) {
-      card.addEventListener('click', () => {
-        modal.innerHTML += `
+
+  const card = document.querySelectorAll(".card");
+
+  card.forEach(card => {
+    card.addEventListener('click', () => {
+      console.log(card)
+      modalPost.innerHTML = `
+      <div class="modal-config__close-modal"></div>
         div mascara
         `
-        handleConfigModalState()
-        console.log('dentro do foreach')
-        console.log(modalCloseButton)
-      })
+      handlePostModalState()
     })
+  })
 }, 300);
 

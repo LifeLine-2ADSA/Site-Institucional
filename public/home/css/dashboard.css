@@ -14,8 +14,8 @@
 }
 
 .side-bar{
-    background-color:#dfdfdbc4 ;
-    width: 15%;
+    background-color:#dedede ;
+    width: 18%;
    /* height: 100%; */
     display: flex;
     flex-direction: column;

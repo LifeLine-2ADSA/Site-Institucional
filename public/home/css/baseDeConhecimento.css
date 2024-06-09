@@ -51,11 +51,12 @@
     --size-2xxl: 14rem;
     --size-3xxl: 15.225rem;
    }
+   
    .body__darkmode {
        --clr-background: #083a5b;
        --clr-primary: #0C4A6E;
        --clr-primary__dark: #09354e;
-       --clr-secondary: #c2c5dc;
+       --clr-secondary: #f0feff;
        --clr-font-primary: #d2dde3;
        --clr-font-secondary: #c2c5dc;
        --clr-highlight: #36C5F0;
