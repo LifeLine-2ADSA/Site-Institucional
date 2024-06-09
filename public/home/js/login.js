@@ -1,3 +1,5 @@
+
+
 function autenticar() {
   let emailVar = email_input.value;
   let senhaVar = senha_input.value;
@@ -25,8 +27,14 @@ function autenticar() {
             sessionStorage.NOME_USUARIO = json.nome;
             sessionStorage.ID_USUARIO = json.id;
             sessionStorage.MAQUINAS_USUARIO = JSON.stringify(json.maquinas);
+            sessionStorage.CPF = json.cpf;
+            sessionStorage.CARGO = json.cargo; 
+            sessionStorage.ENDERECO = json.endereco; 
 
-            setTimeout(function () {
+            sessionStorage.setItem('CPF', json.cpf);
+
+
+            setTimeout(() => {
               window.location = "././dashboard.html";
             }, 1000); // apenas para exibir o loading
           });
