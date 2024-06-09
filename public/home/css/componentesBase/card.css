@@ -21,6 +21,7 @@
     z-index: 0;
     overflow: hidden;
     transition: all 0.3s;
+    cursor: pointer;
 }
 
 /* efeitos card */
@@ -123,7 +124,7 @@
     font-weight: 800;
 }
 
-/* Estilización del contenido del card */
+/* conteúdo card */
 .cards .card__content {
     height: 70%;
     width: var(--size-3xxl);
@@ -132,7 +133,7 @@
     padding: 2.5%;
 }
 
-/* Estilización de la descripción del card */
+/* descrição card */
 .card__content .content__description {
     background-color: inherit;
     padding: 0.25rem;
@@ -141,7 +142,7 @@
     overflow: hidden;
 }
 
-/* Estilización del footer del card */
+/* footer card */
 .card .card__footer {
     display: flex;
     gap: 5px;

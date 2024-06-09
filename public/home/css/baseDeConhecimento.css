@@ -107,24 +107,29 @@
        max-width: 100%;
        user-select: none;
    }
+
+   /* contaner  */
    .container_section{
     display: flex;
     flex-direction: column;
     height: 80%;
     padding-left: 10%;
     padding-right: 10%;
+    gap: 2rem;
    }
+
    /* barra de pesquisa */
-   .search {
+   .barra_pesquisa {
     display: flex;
     align-items: center;
     justify-content:center;
     text-align: center;
     width: 100%;
     height: 60%;
+    padding-top: 2rem;
   }
   
-  .search__input {
+  .pesquisa__input {
     font-family: inherit;
     font-size: inherit;
     background-color: #fff;
@@ -137,35 +142,35 @@
     margin-right: -2rem;
   }
   
-  .search__input:hover, .search__input:focus {
+  .pesquisa__input:hover, .pesquisa__input:focus {
     box-shadow: 0 0 1em #00000013;
   }
   
-  .search__input:focus {
+  .pesquisa__input:focus {
     outline: none;
     background-color: #f0eeee;
   }
   
-  .search__input::-webkit-input-placeholder {
+  .pesquisa__input::-webkit-input-placeholder {
     font-weight: 100;
     color: #ccc;
   }
   
-  .search__input:focus + .search__button {
+  .pesquisa__input:focus + .pesquisa_botao {
     background-color: #f0eeee;
   }
   
-  .search__button {
+  .pesquisa_botao {
     border: none;
-    background-color: #f4f2f2;
+    background-color: #fff;
     margin-top: .1em;
   }
   
-  .search__button:hover {
+  .pesquisa_botao:hover {
     cursor: pointer;
   }
   
-  .search__icon {
+  .pesquisa_icon {
     height: 1.3em;
     width: 1.3em;
     fill: #b4b4b4;
@@ -268,3 +273,33 @@
 
     }
 }
+
+/* responsividade */
+
+@media (min-width: 475px) {}
+
+@media (min-width: 640px) {
+    .cards {
+        flex-direction: row;
+        height: 380px;
+        justify-content: space-evenly;
+        gap: 1rem;
+    }
+    .cards .card:hover {
+        max-width: 508px;
+    }
+}
+
+@media (min-width: 868px) {}
+
+@media (min-width: 1280px) {
+    .cards .card:hover {
+        max-width: 1022px;
+    }
+}
+
+@media (min-width: 1536px) {}
+
+@media (min-width: 1850px) {}
+
+@media (min-width: 2400px) {}
