@@ -1,0 +1,123 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;500&display=swap");
+
+
+
+* {
+  font-family: "Inter", sans-serif;
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #6db5c5;
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+  /* overflow-x: hidden; */
+}
+
+*::-webkit-scrollbar-track {
+  background-color: 3px solid rgba(255, 255, 255, 0.441);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #33919a;
+  border-radius: 40px;
+}
+
+body {
+  width: 100vw;
+}
+
+/* Inicio da estilização da header */
+.bemvindo {
+  background-image: url("../assets/images/image\ 1.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  height: 711px;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+
+  background-color: transparent;
+  color: rgb(255, 255, 255);
+  width: 100%;
+  top: 0;
+}
+
+.logoHeader {
+  height: fit-content;
+  display: flex;
+
+  color: rgb(255, 255, 255);
+}
+
+.logoHeader h1 {
+  align-self: center;
+}
+
+#imagemLogo {
+  width: 100px;
+  height: 100px;
+}
+
+
+        header {
+            
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+        }
+        main {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 1rem;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .profile-picture {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: #ccc;
+            margin-right: 1rem;
+            float: left;
+        }
+        .personal-info {
+            margin-bottom: 1rem;
+            background-color: #fff;
+            padding-top: 120px;
+        }
+        label {
+            font-weight: bold;
+            background-color: #fff;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            background-color: #fff;
+        }
+        button {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+       

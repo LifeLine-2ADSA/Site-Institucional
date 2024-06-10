@@ -21,7 +21,6 @@ body {
 
 .chat {
   height: 100vh;
-  width: 82%;
   display: flex;
   flex-direction: column;
   justify-content: center;

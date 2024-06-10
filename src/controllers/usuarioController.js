@@ -1,6 +1,19 @@
 var usuarioModel = require("../models/usuarioModel");
 var maquinaModel = require("../models/maquinaModel");
 
+
+function listar(req, res) {
+  var idUsuario = req.params.idUsuario;
+
+  usuarioModel.listar(idUsuario)
+      .then(function (resultado) {
+          res.status(200).json(resultado);
+      }).catch(
+          function (erro) {
+              res.status(500).json(erro.sqlMessage);
+          })
+}
+
 function autenticar(req, res) {
   var email = req.body.emailServer;
   var senha = req.body.senhaServer;
@@ -28,6 +41,8 @@ function autenticar(req, res) {
                 email: resultadoAutenticar[0].email,
                 nome: resultadoAutenticar[0].nome,
                 senha: resultadoAutenticar[0].senha,
+                endereco: resultadoAutenticar[0].endereco,
+                cpf: resultadoAutenticar[0].cpf,
                 cargo: resultadoAutenticar[0].cargo,
                 maquinas: resultadoMaquinas,
               });
@@ -59,6 +74,7 @@ function cadastrar(req, res) {
   var telefone = req.body.telefoneServer;
   var cargo = req.body.cargoServer;
   var endereco = req.body.enderecoServer;
+ 
 
   // Faça as validações dos valores
   if (nome == undefined) {
@@ -95,9 +111,10 @@ function cadastrar(req, res) {
   }
 }
 
-// ja volto
+// ja volto cruz credo...
 
 module.exports = {
   autenticar,
   cadastrar,
+  listar,
 };

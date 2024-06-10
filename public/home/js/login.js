@@ -26,6 +26,7 @@ function emailErrado() {
   }, 750);
 }
 
+
 function autenticar() {
   let emailVar = email_input.value;
   let senhaVar = senha_input.value;

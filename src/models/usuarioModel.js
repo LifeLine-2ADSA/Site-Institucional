@@ -45,7 +45,16 @@ function cadastrar(
   return database.executar(instrucaoSql);
 }
 
+function listar(idUsuario) {
+  var instrucao =  `
+  SELECT * FROM usuario WHERE idUsuario = ${idUsuario}
+`;
+return database.executar(instrucao);
+
+}
+
 module.exports = {
   autenticar,
   cadastrar,
+  listar,
 };

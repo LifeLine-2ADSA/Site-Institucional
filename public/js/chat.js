@@ -4,6 +4,7 @@ let messages = [];
 let messagesElement = document.getElementById('messages')
 
 for (let message of messages) {
+
   messagesElement.innerHTML += `<div class="containerMessage left">
   <div class="messageAndHour">
     <div class="time">
