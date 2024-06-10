@@ -6,6 +6,24 @@
   color: #80b6c2;
 }
 
+@keyframes shake {
+  0% {
+    transform: translateX(0px);
+    background-color: rgba(255, 0, 0, 1);
+  } 25% {
+    transform: translateX(-10px);
+    background-color: rgba(255, 0, 0, 0.8);
+  } 50% {
+    transform: translateX(10px);
+    background-color: rgba(255, 0, 0, 0.6);
+  } 75% {
+    transform: translateX(-10px);
+    background-color: rgba(255, 0, 0, 0.4);
+  } 100% {
+    transform: translateX(0px);
+    background-color: rgba(255, 0, 0, 0.2);
+  }
+}
 body {
   height: 100vh;
   display: flex;
@@ -30,6 +48,10 @@ body {
   background-color: #80b6c2;
   color: white;
   border: 0;
+  outline: 0;
+}
+.form:focus {
+  box-shadow: inset 0px 0px 20px 0px rgba(0, 0, 0, 0.25);
 }
 
 .formulario input::placeholder {
@@ -44,15 +66,27 @@ body {
   cursor: pointer;
 }
 
+.animacaoErro {
+  animation: shake 0.7s ease-in-out;
+}
+
 .formulario .entrar {
   width: 150px;
   height: 40px;
   border-radius: 25px;
   text-align: center;
   color: #80b6c2;
-  border: 1;
+  border: .98px solid;
   border-color: #80b6c2;
   cursor: pointer;
+  transition: .3s ease-in;
+}
+.entrar:hover {
+ background-color: #80b6c2;
+ font-size: 16px;
+ font-weight: 600;
+ color: white !important; 
+ transition: .7s ease-out;
 }
 
 /* parte direita */
@@ -78,7 +112,6 @@ body {
   margin-top: 50%;
   margin-left: 100%;
   border-radius: 100%;
-<<<<<<< HEAD
 }
 
 /*Breakpoint para mobile*/
@@ -277,6 +310,4 @@ body {
     margin-left: 100%;
     border-radius: 100%;
   }
-=======
->>>>>>> f54c9cd5a7ac8086c197f842f6c78d7cf6331335
 }

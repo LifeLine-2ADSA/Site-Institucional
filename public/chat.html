@@ -1,12 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Chat</title>
   <link rel="stylesheet" href="./css/chat.css">
-</head>
+  <link rel="stylesheet" href="./home/css/dashboard.css">
+  </head>
+
 <body>
+  <div class="side-bar">
+    <img id="img-logo" src="./home/assets/images/logoLifeLine.png" alt="">
+    <div class="botoes-sidebar">
+      <select class="botao-sidebar" name="maquinas_select" id="maquinas_select" onChange="mudarDash()">
+        <option>MÁQUINAS</option>
+      </select>
+      </select>
+
+      <a class="botao-sidebar" href="dashboard.html">HOME</a>
+      <a class="botao-sidebar" href="cadastroMaquina/cadastroMaquina.html">CADASTRAR MAQUINA</a>
+      <a class="botao-sidebar" href="baseDeConhecimento.html">BASE DE CONHECIMENTO</a>
+      <a class="botao-sidebar" href="chat.html">Tire sua dúvida</a>
+
+    </div>
+
+  </div>
   <div class="chat">
     <header>
       <div class="IA">
@@ -36,6 +55,5 @@
   </div>
 
   <script src="js/chat.js"></script>
-  
 </body>
 </html>

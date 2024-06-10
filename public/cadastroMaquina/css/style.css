@@ -129,9 +129,12 @@ header {
 }
 
 .maquinas {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
 }
+
+
 
 .maquina {
   height: 130px;
@@ -141,6 +144,7 @@ header {
   border: 2px solid #d4d4d8;
   border-radius: 0.5rem;
   padding: 0 0 0rem 1rem;
+  cursor: pointer;
 }
 
 .maquina img {
@@ -164,7 +168,7 @@ header {
   align-items: center;
   display: flex;
   gap: 1rem;
-  padding: 0 5rem;
+  padding: 0 3rem 0 1rem;
 }
 
 .kpiMaquina {

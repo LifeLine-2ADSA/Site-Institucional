@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,34 +10,35 @@
     <script src="https://kit.fontawesome.com/f0ba5f04ed.js" crossorigin="anonymous"></script>
 </head>
 
-<body>
+<body onload="listarMaquinas()">
     <div class="body-dash">
         <div class="side-bar">
             <img id="img-logo" src="./home/assets/images/logoLifeLine.png" alt="">
             <div class="botoes-sidebar">
-                <select class="botao-sidebar" name="maquinas" id="maquinas">
-                    <option value="">Maquina A</option>
-                    <option value="">Maquina B</option>
+                <select class="botao-sidebar" name="maquinas_select" id="maquinas_select" onChange="mudarDash()">
+                    <option>MÁQUINAS</option>
                 </select>
+                </select>
+
                 <a class="botao-sidebar">HOME</a>
                 <a class="botao-sidebar" href="cadastroMaquina/cadastroMaquina.html">CADASTRAR MAQUINA</a>
-                <a class="botao-sidebar">BASE DE CONHECIMENTO</a>
+                <a class="botao-sidebar" href="baseDeConhecimento.html">BASE DE CONHECIMENTO</a>
+                <a class="botao-sidebar" href="chat.html">Tire sua dúvida</a>
 
-       
             </div>
 
         </div>
         <div class="container-dash">
             <div class="navbar">
-              <i class="fa-solid fa-right-from-bracket fa-2xl" style="color: #0d0d0d;"></i>
+                <i class="fa-solid fa-right-from-bracket fa-2xl" style="color: #0d0d0d;"></i>
                 <i class="fa-sharp fa-solid fa-circle-user fa-2xl" style="color: #000000;"></i>
 
             </div>
             <div class="container-kpis">
-                <div class="boxKpi kpiIndicador">Em 29/04/2024 sua máquina excedeu o limite de CPU</div>
-                <div class="boxKpi kpiIndicador">Sua máquina teve 7 alertas durante a semana</div>
-                <div class="boxKpi kpiFrase">A temperatura da sua máquina está em 27ºC isso pode causar o desligamento o da maquina </div>
-                <div class="boxKpi kpiFrase">Atualmente a janele 'Spotify' é a mais prejudicial ao desempenho de sua maquina</div>
+                <div id="primeira_kpi" class="boxKpi kpiIndicador"></div>
+                <div id="segunda_kpi" class="boxKpi kpiIndicador"></div>
+                <div id="terceira_kpi" class="boxKpi kpiFrase"></div>
+                <div id="quarta_kpi" class="boxKpi kpiFrase"></div>
             </div>
             <div class="container-graficos">
                 <div class="box-graficos">
@@ -56,7 +58,7 @@
                         <canvas id="myChart2"></canvas>
                     </div>
                     <div class="grafico">
-                        <h2>Janelas com maior consumo</h2>
+                        <h2>Temperatura</h2>
                         <canvas id="myChart4"></canvas>
                     </div>
                 </div>
@@ -64,88 +66,267 @@
         </div>
     </div>
 </body>
+
 </html>
 <script>
-    const ctx = document.getElementById('myChart');
-    const ctx2 = document.getElementById('myChart2');
-    const ctx3 = document.getElementById('myChart3');
-    const ctx4 = document.getElementById('myChart4');
-    new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+    let idMaquina = sessionStorage.ID_MAQUINA_DASH;
+    let capacidadeDisco = 0.0;
+
+    function mudarDash() {
+        let id = maquinas_select.value;
+        sessionStorage.ID_MAQUINA_DASH = id;
+        window.location = "dashboard.html"
+    }
+
+    // SELECT COM O NOME DAS MAQUINAS
+    function listarMaquinas() {
+        fetch(`/maquina/listarMaquinas/${sessionStorage.ID_USUARIO}`, {
+            method: "GET",
+        })
+            .then(function (resposta) {
+                resposta.json().then((maquinas) => {
+                    maquinas.forEach((maquina) => {
+                        maquinas_select.innerHTML += `<option value='${maquina.idMaquina}'>${maquina.nomeMaquina}</option>`;
+
+                        if (maquina.idMaquina == idMaquina) {
+                            capacidadeDisco = maquina.maxDisco;
+                            console.log(capacidadeDisco)
+                        }
+                    });
+                });
+                obterDados();
+            })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+            });
+
+
+
+    }
+
+    // KPIS
+    function obterDados() {
+        fetch(`/medidas/ultimas/${idMaquina}`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+
+                    var data = resposta[resposta.length - 1].dataHora; // data e hora do mysql
+
+                    const date = new Date(data); // formatando a var data
+                    const dia = String(date.getUTCDate()).padStart(2, '0');
+                    const mes = String(date.getUTCMonth() + 1).padStart(2, '0');
+                    const ano = date.getUTCFullYear();
+                    const dataFormatada = `${dia}/${mes}/${ano}`;
+
+                    primeira_kpi.innerHTML = `<img src="./home/assets/images/icons8-high-priority-50.png" width="30" height="30"> Em ${dataFormatada} sua máquina excedeu o limite de CPU`
+                    segunda_kpi.innerHTML = `<img src="./home/assets/images/icons8-alerta-50.png" width="30" height="30"> Sua máquina teve ${resposta.length} alertas durante a semana`
+                    terceira_kpi.innerHTML = `<img src="./home/assets/images/icons8-temperatura-30.png" width="40" height="40"> A temperatura da sua máquina está em ${resposta[resposta.length - 1].temperatura}ºC isso pode causar o desligamento o da maquina`
+                    quarta_kpi.innerHTML = `Atualmente a janela '${resposta[resposta.length - 1].nomeJanela}' é a mais prejudicial ao desempenho de sua maquina`
+
+                    plotarGrafico(resposta);
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
+
+
+    function plotarGrafico(resposta) {
+        console.log('iniciando plotagem dos gráficos...');
+        // DASH'S
+        const ctx1 = document.getElementById('myChart');
+        const ctx2 = document.getElementById('myChart2');
+        const ctx3 = document.getElementById('myChart3');
+        const ctx4 = document.getElementById('myChart4');
+
+        //
+
+        // Criando estrutura para plotar gráfico - labels
+        let labels_grafico1 = [];
+        let labels_grafico2 = ['Livre', 'Usados'];
+        let labels_grafico3 = [];
+        let labels_grafico4 = [];
+
+        // Criando estrutura para plotar gráfico - dados
+        let dados_grafico1 = {
+            labels: labels_grafico1,
             datasets: [{
                 label: '# of Votes',
-                data: [12, 19, 3, 5, 2, 3],
+                data: [],
                 borderWidth: 1
             }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            },
-            //     plugins: {
-            //     title: {
-            //         display: true,
-            //         text: 'Custom Chart Title'
-            //     }
-            // }
-        }
-    });
-    new Chart(ctx2, {
-        type: 'doughnut',
-        data: {
-            labels: ['Livre', 'Usados'],
+        };
+
+        let consumoDisco = resposta[resposta.length - 1].consumoDisco;
+        let livreDisco = capacidadeDisco - consumoDisco;
+        console.log(capacidadeDisco)
+        console.log(consumoDisco)
+
+        let dados_grafico2 = {
+            labels: labels_grafico2,
             datasets: [{
-                data: [12, 19],
+                data: [livreDisco, consumoDisco],
                 borderWidth: 1
             }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    });
-    new Chart(ctx3, {
-        type: 'line',
-        data: {
-            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        };
+
+        let dados_grafico3 = {
+            labels: labels_grafico3,
             datasets: [{
                 label: '# of Votes',
-                data: [12, 19, 3, 5, 2, 3],
+                data: [],
                 borderWidth: 1
             }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    });
-    new Chart(ctx4, {
-        type: 'bar',
-        data: {
-          labels: ['Google Chrome', 'Spotify', 'Microsoft Teams', 'Microsoft Excel'],
+        };
+
+        let dados_grafico4 = {
+            labels: labels_grafico4,
             datasets: [{
-                label: '',
-                data: [12, 19, 3, 5],
+                label: '# of Votes',
+                data: [],
                 borderWidth: 1
             }]
-        },
-        options: {
-            indexAxis: 'y',
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
+        };
+
+        console.log('----------------------------------------------')
+        console.log('Estes dados foram recebidos pela funcao "listarMaquina" e passados para "plotarGrafico":')
+
+        // Inserindo valores recebidos em estrutura para plotar o gráfico
+
+        for (i = 0; i < resposta.length; i++) {
+            var registro = resposta[i];
+            var data = registro.dataHora;
+            console.log(data)
+            const date = new Date(data);
+            const hora = String(date.getHours()).padStart(2, '0');
+            const minuto = String(date.getMinutes()).padStart(2, '0');
+            const segundo = String(date.getSeconds()).padStart(2, '0');
+            const horaFormatada = `${hora}:${minuto}:${segundo}`;
+
+
+            labels_grafico1.push(horaFormatada);
+            dados_grafico1.datasets[0].data.push(registro.consumoCpu);
+
+            labels_grafico3.push(horaFormatada);
+            dados_grafico3.datasets[0].data.push(registro.consumoRam);
+
+
+            labels_grafico4.push(horaFormatada);
+            dados_grafico4.datasets[0].data.push(registro.temperatura);
         }
-    });
+
+        // Criando estrutura para plotar gráfico - config
+        const config_grafico1 = {
+            type: 'line',
+            data: dados_grafico1,
+        };
+        const config_grafico2 = {
+            type: 'doughnut',
+            data: dados_grafico2,
+        };
+        const config_grafico3 = {
+            type: 'line',
+            data: dados_grafico3,
+        };
+        const config_grafico4 = {
+            type: 'line',
+            data: dados_grafico4,
+        };
+
+        // criando Graficos
+        let myChart1 = new Chart(
+            ctx1,
+            config_grafico1
+        );
+        let myChart2 = new Chart(
+            ctx2,
+            config_grafico2
+        );
+        let myChart3 = new Chart(
+            ctx3,
+            config_grafico3
+        );
+        let myChart4 = new Chart(
+            ctx4,
+            config_grafico4
+        );
+
+        setInterval(() => atualizarGrafico(dados_grafico1, consumoDisco, dados_grafico3, dados_grafico4, myChart1, myChart2, myChart3, myChart4), 10000);
+    }
+
+    function atualizarGrafico(dados_grafico1, consumoDisco, dados_grafico3, dados_grafico4, myChart1, myChart2, myChart3, myChart4) {
+        fetch(`/medidas/tempo-real/${idMaquina}`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (novoRegistro) {
+                    console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
+
+
+                    var dataRegistro = novoRegistro[0].dataHora;
+
+                    const dateRegistro = new Date(dataRegistro);
+                    const horaRegistro = String(dateRegistro.getHours()).padStart(2, '0');
+                    const minutoRegistro = String(dateRegistro.getMinutes()).padStart(2, '0');
+                    const segundoRegistro = String(dateRegistro.getSeconds()).padStart(2, '0');
+                    const horaFormatadaRegistro = `${horaRegistro}:${minutoRegistro}:${segundoRegistro}`;
+
+
+                    if (horaFormatadaRegistro == dados_grafico1.labels[dados_grafico1.labels.length - 1]) {
+                        console.log("---------------------------------------------------------------")
+                        console.log("Como não há dados novos para captura, o gráfico não atualizará.")
+                    } else {
+
+                        var data = novoRegistro[0].dataHora;
+
+                        const date = new Date(data);
+                        const hora = String(date.getHours()).padStart(2, '0');
+                        const minuto = String(date.getMinutes()).padStart(2, '0');
+                        const segundo = String(date.getSeconds()).padStart(2, '0');
+                        const horaFormatada = `${hora}:${minuto}:${segundo}`;
+
+                        // Grafico de consumo de CPU
+                        dados_grafico1.labels.shift();
+                        dados_grafico1.labels.push(horaFormatada);
+                        dados_grafico1.datasets[0].data.shift();
+                        dados_grafico1.datasets[0].data.push(novoRegistro[0].consumoCpu);
+
+                        // Grafico de consumo de RAM
+
+                        dados_grafico3.labels.shift();
+
+                        dados_grafico3.labels.push(horaFormatada);
+                        dados_grafico3.datasets[0].data.shift();
+                        dados_grafico3.datasets[0].data.push(novoRegistro[0].consumoCpu);
+
+                        // Grafico de consumo de Disco
+
+                        consumoDisco = novoRegistro[0].consumoDisco
+
+                        // Grafico de Temperatura
+
+                        dados_grafico4.labels.shift();
+                        dados_grafico4.labels.push(horaFormatada);
+                        dados_grafico4.datasets[0].data.shift();
+                        dados_grafico4.datasets[0].data.push(novoRegistro[0].temperatura);
+
+                        // update
+                        myChart1.update();
+                        myChart2.update();
+                        myChart3.update();
+                        myChart4.update();
+
+                    }
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+
+    }
 </script>

@@ -46,9 +46,6 @@ function autenticar(req, res) {
                 cargo: resultadoAutenticar[0].cargo,
                 maquinas: resultadoMaquinas,
               });
-              // } else {
-              //   res.status(204).json({ maquinas: [] });
-              // }
             });
         } else if (resultadoAutenticar.length == 0) {
           res.status(403).send("Email e/ou senha inválido(s)");

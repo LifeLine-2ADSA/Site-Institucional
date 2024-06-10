@@ -1,0 +1,110 @@
+:root {
+    --img-icon__slack: url('../../assets/images/Slack.svg');
+    --img-icon__config: url('../../assets/images/config.svg');
+}
+
+
+.sidebar {
+    position: absolute;
+    width: var(--size-4xl);
+    height: var(--size-10xl);
+    background-color: var(--clr-primary);
+    transition: background-color 0.375s ease-out;
+    border-radius: 10px 0 0 10px ;
+    right: 0;
+    padding: 0.455rem;
+    top: 70px;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sidebar .sidebar__icon{
+    background: inherit;
+    position: relative;
+    height: var(--size-2xl);
+    width: var(--size-2xl);
+
+}
+.sidebar__icon:nth-child(n) {
+    background-color: inherit;
+    background-size: var(--size-2xl);
+    background-repeat: no-repeat;
+}
+.sidebar__icon:first-child {
+    background-image: var(--img-icon__chat);
+}
+.sidebar__icon:nth-child(2) {
+    background-image: var(--img-icon__slack);
+}
+.sidebar__icon:nth-child(3) {
+    background-image: var(--img-icon__user);
+}
+.sidebar__icon:nth-child(4) {
+    background-image: var(--img-icon__config);
+}
+
+.sidebar .sidebar__icon::after {
+    content: "";
+    background-color: var(--clr-highlight);
+    height: 0;
+    width: 2px;
+    border-radius: 100px;
+    position: absolute;
+    top: 2px;
+    right: -3.8px;
+    transition: .3s ease-in-out;
+}
+
+.sidebar__icon:hover::after {
+    height: 90%;
+}
+
+/* xs */
+/* @media (min-width: 475px) {} */
+
+/* sm */
+/* @media (min-width: 640px) {} */
+
+/* md */
+@media (min-width: 768px) {
+    .sidebar {
+        height: var(--size-8xl);
+        width: var(--size-4-5xl);
+        top: 90px
+    }
+    .sidebar__icon:nth-child(odd) {
+        display: none;
+    }
+    .sidebar .sidebar__icon{
+        height: var(--size-3xl);
+        width: var(--size-3xl);
+    }
+    .sidebar__icon:nth-child(n) {
+        background-size: var(--size-3xl);
+    }
+}
+
+/* lg */
+@media (min-width: 1024px) {
+    .sidebar {
+        display: none;
+       }
+  
+}
+
+/* xl */
+@media (min-width: 1280px) {
+    
+}
+
+/* 2xl */
+/* @media (min-width: 1536px) {} */
+
+/* 3xl */
+/* @media (min-width: 1850px) {} */
+
+/* TV */
+/* @media (min-width: 2400px) {} */
