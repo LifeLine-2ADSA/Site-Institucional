@@ -123,6 +123,25 @@
                     terceira_kpi.innerHTML = `<img src="./home/assets/images/icons8-temperatura-30.png" width="40" height="40"> A temperatura da sua máquina está em ${resposta[resposta.length - 1].temperatura}ºC isso pode causar o desligamento o da maquina`
                     quarta_kpi.innerHTML = `Atualmente a janela '${resposta[resposta.length - 1].nomeJanela}' é a mais prejudicial ao desempenho de sua maquina`
 
+                    if (resposta.length > 0 && typeof resposta[resposta.length - 1].temperatura !== 'undefined') {
+                        const ultimaTemperatura = resposta[resposta.length - 1].temperatura;
+                        if (ultimaTemperatura >= 80 && ultimaTemperatura <= 90) {
+                            terceira_kpi.classList.add("pop-out");
+                            terceira_kpi.style.backgroundColor = "red";
+                        }
+                        else if(ultimaTemperatura >= 60 && ultimaTemperatura <= 79){
+                            terceira_kpi.classList.add("pop-out");
+                            terceira_kpi.style.backgroundColor = "yellow";
+                        }
+                        else{
+                            terceira_kpi.classList.add("pop-out");
+                            terceira_kpi.style.backgroundColor = "green";
+                        }
+            
+                    } else {
+                        console.error('A resposta está vazia ou a propriedade "temperatura" não está definida.');
+                    }
+
                     plotarGrafico(resposta);
                 });
             } else {
