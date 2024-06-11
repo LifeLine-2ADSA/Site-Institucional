@@ -65,6 +65,7 @@
        --clr-botton:#dfdfdf;
        --clr-plus-botton: #083a5b;
    }
+  
    
    * {
        margin: 0;
@@ -77,6 +78,7 @@
        background-color: var(--clr-background);
        scroll-behavior: smooth;
        transition: font-size .375s ease-out;
+       overflow-x: hidden;
    }
    body {
        background-color: var(--clr-background);
@@ -122,11 +124,12 @@
     padding-left: 10%;
     padding-right: 10%;
     gap: 2rem;
+    margin-top: 1.5rem;
    }
 
    /* barra de pesquisa */
    .barra_pesquisa {
-    display: flex;
+    display: none;
     align-items: center;
     justify-content:center;
     text-align: center;
@@ -292,7 +295,11 @@
     }
 }
 
-@media (min-width: 868px) {}
+@media (min-width: 768px) {
+  .barra_pesquisa {
+    display: flex;
+  }
+}
 
 @media (min-width: 1280px) {
     .cards .card:hover {

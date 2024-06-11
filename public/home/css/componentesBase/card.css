@@ -130,7 +130,8 @@
     width: var(--size-3xxl);
     border-radius: 10px 10px 0 0;
     position: relative;
-    padding: 2.5%;
+    padding: 0px 5px;
+    margin-bottom: 7px;
 }
 
 /* descrição card */
