@@ -20,6 +20,7 @@ body {
 }
 
 .chat {
+  width: 82%;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -109,7 +110,9 @@ header {
   width: max-content;
   max-width: 100%;
   padding: 20px;
-  font-size: 1.2rem;
+  font-size: 1.8rem;
+  line-height: 30px;
+
 }
 
 .containerMessage .message {
