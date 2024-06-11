@@ -4,7 +4,7 @@
     --img-icon__add: url('../../assets/images/addPost.svg');
     --img-icon__user: url('../../assets/images/userBase.svg');
     --img-icon__chat: url('../../assets/images/chat.svg');
-    --img-icon__slack: url('../../assets/images/Slack.svg');
+    --img-icon__slack: url('../../assets/images/dash.png');
 }
 
 .mask {

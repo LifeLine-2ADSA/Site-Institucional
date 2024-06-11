@@ -64,6 +64,7 @@
        --clr-font-card-title:#083a5b;
        --clr-botton:#dfdfdf;
        --clr-plus-botton: #083a5b;
+       
    }
   
    
@@ -83,7 +84,7 @@
    body {
        background-color: var(--clr-background);
        transition: background-color .375s ease-out;
-       height: 100vh;
+       min-height: 100vh;
    }
    a {
        color: var(--clr-highlight);
