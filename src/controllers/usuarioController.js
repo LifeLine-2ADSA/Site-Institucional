@@ -44,6 +44,7 @@ function autenticar(req, res) {
                 endereco: resultadoAutenticar[0].endereco,
                 cpf: resultadoAutenticar[0].cpf,
                 cargo: resultadoAutenticar[0].cargo,
+                fkEmpresa: resultadoAutenticar[0].fkEmpresa,
                 maquinas: resultadoMaquinas,
               });
             });

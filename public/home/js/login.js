@@ -60,6 +60,7 @@ function autenticar() {
             sessionStorage.NOME_USUARIO = json.nome;
             sessionStorage.ID_USUARIO = json.id;
             sessionStorage.CARGO_USUARIO = json.cargo;
+            sessionStorage.FK_EMPRESA = json.fkEmpresa;
             sessionStorage.MAQUINAS_USUARIO = JSON.stringify(json.maquinas);
             setTimeout(function () {
               window.location = "../cadastroMaquina/cadastroMaquina.html";

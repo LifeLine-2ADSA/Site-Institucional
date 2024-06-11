@@ -11,4 +11,8 @@ router.get("/listarMaquinas/:idUsuario", function (req, res) {
   maquinaController.listarMaquinas(req, res);
 })
 
+router.get("/listarMaquinasEmpresa/:fkEmpresa", function (req, res) {
+  maquinaController.listarMaquinasEmpresa(req, res);
+})
+
 module.exports = router;

@@ -60,8 +60,28 @@ function listarMaquinas(req, res) {
   }
 }
 
+function listarMaquinasEmpresa(req, res) {
+  var fkEmpresa = req.params.fkEmpresa;
+
+  if (fkEmpresa == undefined) {
+    res.status(400).send("fkEmpresa está undefined!");
+  } else {
+    maquinaModel.listarMaquinasEmpresa(fkEmpresa)
+    .then(
+      (resultado) => {
+        if (resultado.length > 0) {
+          res.status(200).json(resultado);
+        } else {
+          res.status(204).json([]);
+        }
+      }
+    )
+  }
+}
+
 module.exports = {
   listarMaquinas,
   buscarMaquinasPorUsuario,
   cadastrar,
+  listarMaquinasEmpresa
 };

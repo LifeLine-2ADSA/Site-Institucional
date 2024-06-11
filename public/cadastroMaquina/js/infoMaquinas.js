@@ -1,8 +1,15 @@
 let listMaquinas = []
 let inputNomeMaquina = document.getElementById('inputMaquina')
+let parametroReq;
 
 function fetchInfoMaquinas() {
-    fetch(`/maquina/listarMaquinas/${sessionStorage.ID_USUARIO}`, {
+    if(sessionStorage.CARGO_USUARIO == "Saúde"){
+      parametroReq = `listarMaquinas/${sessionStorage.ID_USUARIO}`
+    }else{
+      parametroReq = `listarMaquinasEmpresa/${sessionStorage.FK_EMPRESA}`
+    }
+
+    fetch(`/maquina/${parametroReq}`, {
         method: "GET",
     })
         .then(resposta => {
